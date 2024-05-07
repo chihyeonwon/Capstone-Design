@@ -721,7 +721,7 @@ Glide의 override(이미지 리사이징)과 캐싱 메서드(skipMemoryCache, d
 #### 공유하기 기능 구현
 
 ```
-text/plain 형식의 데이터를 전송하고 여러 명에게 공유하기를 보낸다.
+개발하고자 하는 기능의 정식 명칭은 "딥링크 DeepLink"이다.
 ```
 
 
