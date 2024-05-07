@@ -723,7 +723,15 @@ Glide의 override(이미지 리사이징)과 캐싱 메서드(skipMemoryCache, d
 ```
 개발하고자 하는 기능의 정식 명칭은 "딥링크 DeepLink"이다.
 ```
-
+#### QnA 관리자만 댓글 달 수 있도록 수정
+#### 관리자 아이디가 아닌 경우
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/ba70aa19-685c-4588-a2d9-5f1705e424d6)
+#### 관리자 아이디인 경우(heungeob1003@gwnu.myplug.kr)
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a258964c-3437-443c-8cbe-2c6641eb796d)
+```
+heungeob1003@gwnu.myplug.kr <-를 관리자로 하고 관리자일 경우에만 댓글을 작성할 수 있도록 수정한다.
+관리자 아이디가 아닌 경우 댓글창이 보이지 않아 댓글을 입력할 수 없다.
+```
 
 
 
