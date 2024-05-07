@@ -719,6 +719,7 @@ Glide의 override(이미지 리사이징)과 캐싱 메서드(skipMemoryCache, d
 
 ## 24.05.07
 #### 공유하기 기능 구현
+[파이어베이스 동적 링크](https://firebase.google.com/docs/dynamic-links/android/create?hl=ko)
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/22131258-07af-47ba-9f68-dec332a6efd7)
 
 ```
