@@ -722,8 +722,13 @@ Glide의 override(이미지 리사이징)과 캐싱 메서드(skipMemoryCache, d
 [파이어베이스 동적 링크](https://firebase.google.com/docs/dynamic-links/android/create?hl=ko)
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/22131258-07af-47ba-9f68-dec332a6efd7)
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/aff2760c-d3da-4724-bae6-9060a02bb9dd)
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/727e6fa1-138e-40b4-b321-d517aacd0065)
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/646b5407-3d4d-4429-b0da-d108a070323c)
 ```
 개발하고자 하는 기능의 정식 명칭은 "딥링크 DeepLink"이다.
+원하는 도메인이 많이 등록되어있어서 일단 보류
+
+
 ```
 #### QnA 관리자만 댓글 달 수 있도록 수정
 #### 관리자 아이디가 아닌 경우
