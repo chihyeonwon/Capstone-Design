@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.ListView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
@@ -18,6 +20,7 @@ import com.example.giveback.databinding.ActivityQnaBoardInsideBinding
 import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -37,11 +40,21 @@ class QnaBoardInsideActivity : AppCompatActivity() {
 
     private lateinit var commentAdapter :CommentLVAdpater
 
+    val user = FirebaseAuth.getInstance().currentUser
+
+    val email = user?.email.toString()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lost_board_inside)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_qna_board_inside)
+
+        // 관리자일 경우에만 댓글 입력할 수 있는 창과 댓글 리스트가 보이도록 수정
+        if(email == "heungeob1003@gwnu.myplug.kr") {
+            findViewById<ListView>(R.id.commentLV).isVisible = true // 댓글 리스트를 보이게 수정
+            findViewById<LinearLayout>(R.id.writeComment).isVisible = true // 댓글 입력 레이아웃을 보이게 수정
+        }
 
         // boardSettingIcon을 클릭하면 custom_dialog layout이 나오도록 이벤트 처리
         binding.boardSettingIcon.setOnClickListener {

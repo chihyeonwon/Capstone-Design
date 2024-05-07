@@ -72,16 +72,19 @@
                 <ListView
                     android:id="@+id/commentLV"
                     android:layout_width="match_parent"
-                    android:layout_height="600dp" />
+                    android:layout_height="600dp"
+                    android:visibility="invisible" />
 
             </LinearLayout>
         </ScrollView>
 
         <LinearLayout
+            android:id="@+id/writeComment"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:visibility="invisible">
 
             <EditText
                 android:id="@+id/commentArea"
