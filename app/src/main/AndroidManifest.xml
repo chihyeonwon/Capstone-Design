@@ -67,7 +67,15 @@
             android:exported="false" />
         <activity
             android:name=".GetBoard.GetBoardInsideActivity"
-            android:exported="false" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".GetBoard.GetBoardWriteActivity"
             android:exported="false" />
@@ -130,6 +138,22 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/notification_icon">
+        </meta-data>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/mainColor">
+        </meta-data>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:resource="fcm_default_channel">
+        </meta-data>
+
     </application>
 
 </manifest>
