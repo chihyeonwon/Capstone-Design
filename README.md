@@ -755,6 +755,5 @@ UI 초기설계단계임
 
 최종 제출 자료가 무엇이 될것인가
 ```
-
-
+[파이어베이스 클라우드 메시징 개념](https://www.youtube.com/watch?v=tvASwNaDZww)
 
