@@ -22,13 +22,17 @@ import com.example.giveback.Chatting.Message
 import com.example.giveback.GetBoard.GetBoardModel
 import com.example.giveback.Keyword.KeywordSearchedActivity
 import com.example.giveback.QnABoard.KeywordStatusModel
+import com.example.giveback.QnABoard.QnaBoardModel
 import com.example.giveback.utils.FBRef
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -50,6 +54,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         createNotificationChannel()
+
+        // 로그인이 되자마자 토큰 발급
+        registerPushToken()
     }
 
     private fun permissionCheck() {
@@ -113,5 +120,25 @@ class MainActivity : AppCompatActivity() {
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    fun registerPushToken(){
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            val map = mutableMapOf<String, Any>()
+            map["pushToken"] = token!!
+
+            // 토큰을 DB에 저장
+            FBRef.tokenRef
+                .child(uid!!)
+                .setValue(map)
+
+        })
     }
 }
