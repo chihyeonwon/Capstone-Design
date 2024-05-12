@@ -757,3 +757,6 @@ UI 초기설계단계임
 ```
 [파이어베이스 클라우드 메시징 개념](https://www.youtube.com/watch?v=tvASwNaDZww)
 [FCM 알림시스템 개발](https://www.inflearn.com/course/lecture?courseSlug=%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C&unitId=30386)
+```
+전체 사용자가 아닌 특정 사용자에게 메시지를 보내고 싶을 때는 기기마다 토큰아이디를 받아와야 한다.
+```
