@@ -768,7 +768,21 @@ UI 초기설계단계임
 [FirebaseInstanceID is deprecated.](https://firebase.google.com/docs/cloud-messaging/android/first-message?hl=ko#retrieve-the-current-registration-token)FirebaseInstanceID -> FirebaseMessaging.getInstance()
 ```
 유저의 토큰을 기준으로 특정 사용자/전체 사용자에게 보낼 수 있는게 fcm
-이제 저걸 어떻게 구분할지는 fcm요청을 작성하는 주체에서 해야한다. 대부분이 서버 -> httpOK 라이브러리
+이제 저걸 어떻게 구분할지는 fcm요청을 작성하는 주체에서 해야한다. 대부분이 서버 -> OKhttp 라이브러리
 예를들어 사용자가 특정 기준을 제공하면 (제목 키워드 등록 등)
 서버에서 신규 글이 등록되었을 때 fcm 요청을 할 대상을 걸러내는 로직 구현
+```
+```
+api키 보안을 위해서 서버에서 푸시push를 전송해줘야한다.
+하지만 서버의 전문 지식이 필요,
+기존 안드로이드 디바이스가 서버 역할도 해주는 라이브러리(okhttp3, gson, multidex)를 추가한다.
+
+com.squareup.okhttp3 
+com.google.code.gson 2.10.1
+androidx.mulitidex 2.0.1<-8개까지만 요청(multidex 오류 발생하기 때문에)
+라이브러리 추가하고 defaultConfig안에 multiDexEnabled true 추가
+```
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/0171e410-6d2a-48ca-a846-dd89bf7cf951)
+```
+기존 Http 에서 HTTP V1으로 마이그레이션
 ```
