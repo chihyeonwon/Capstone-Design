@@ -760,3 +760,7 @@ UI 초기설계단계임
 ```
 전체 사용자가 아닌 특정 사용자에게 메시지를 보내고 싶을 때는 기기마다 토큰아이디를 받아와야 한다.
 ```
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/8d4361b7-a624-4981-ae15-763587e1e6eb)
+```
+토큰 발급 메서드인 registerPushToken() 메서드를 생성하고 로그인 시 바로 토큰이 발급되고 해당 토큰을 DB에 저장한다.
+```
