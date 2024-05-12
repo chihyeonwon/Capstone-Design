@@ -765,6 +765,7 @@ UI 초기설계단계임
 토큰 발급 메서드인 registerPushToken() 메서드를 생성하고 로그인 시 바로 토큰이 발급되고 해당 토큰을 DB에 저장한다.
 ```
 ## 24.05.12 Solution.
+[FirebaseInstanceID is deprecated.](https://firebase.google.com/docs/cloud-messaging/android/first-message?hl=ko#retrieve-the-current-registration-token)FirebaseInstanceID -> FirebaseMessaging.getInstance()
 ```
 유저의 토큰을 기준으로 특정 사용자/전체 사용자에게 보낼 수 있는게 fcm
 이제 저걸 어떻게 구분할지는 fcm요청을 작성하는 주체에서 해야한다. 대부분이 서버 -> httpOK 라이브러리
