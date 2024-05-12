@@ -115,9 +115,10 @@ class ChatActivity : AppCompatActivity() {
             binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount)
             messageAdapter.notifyDataSetChanged()
 
-            // 알림 발생
-            getKeyword()
         }
+
+        // 알림 발생
+        getKeyword()
 
         getMessage()
 
