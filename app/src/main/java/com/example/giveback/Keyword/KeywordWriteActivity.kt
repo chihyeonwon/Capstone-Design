@@ -27,6 +27,7 @@ import com.example.giveback.R
 import com.example.giveback.databinding.ActivityKeywordWriteBinding
 import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
+import com.example.giveback.utils.FcmPush
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.coroutines.GlobalScope
@@ -50,6 +51,7 @@ class KeywordWriteActivity : AppCompatActivity() {
 
     private lateinit var category: String
 
+    private lateinit var keyword: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,8 +59,6 @@ class KeywordWriteActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_keyword_write)
 
         createNotificationChannel()
-
-
 
         // 카테고리를 선택해주세요 버튼을 눌렀을 때 카테고리 설정 창으로 이동한다.
         binding.keywordArea.setOnClickListener {
@@ -198,7 +198,7 @@ class KeywordWriteActivity : AppCompatActivity() {
                 .setMessage("등록된 키워드로 습득물 게시글이 올라올 시 알림이 발생합니다.")
                 .setPositiveButton("확인") { dialog, which ->
 
-                    val keyword = binding.keywordArea.text
+                    keyword = binding.keywordArea.text.toString()
 
                     // 키부터 생성하고 데이터베이스에 저장하도록 수정
                     val key = FBRef.getboardRef.push().key.toString()
@@ -213,6 +213,7 @@ class KeywordWriteActivity : AppCompatActivity() {
                             )
                         )
                     getKeyword()
+
                     finish()
                 }
                 .setNegativeButton("취소", null)
@@ -231,7 +232,10 @@ class KeywordWriteActivity : AppCompatActivity() {
                 // 코루틴을 시작하여 백그라운드에서 실행
                 GlobalScope.launch {
                     if(post?.category.equals(findViewById<TextView>(R.id.keywordArea).text.toString())) {
-                        sendNotification()
+                        FcmPush.instance.sendMessage(
+                            auth?.currentUser?.uid.toString(),
+                            "등록된 ${keyword}으로 습득물 게시글이 올라왔습니다.",
+                            "앱을 실행하여 분실물을 확인하세요")
                     }
                 }
             }
