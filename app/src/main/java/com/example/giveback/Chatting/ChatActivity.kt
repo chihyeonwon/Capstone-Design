@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.giveback.R
 import com.example.giveback.WebviewActivity
 import com.example.giveback.databinding.ActivityChatBinding
+import com.example.giveback.utils.FcmPush
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -114,11 +115,9 @@ class ChatActivity : AppCompatActivity() {
             binding.messageEdit.setText("")
             binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount)
             messageAdapter.notifyDataSetChanged()
-
+            
+            FcmPush.instance.sendMessage(receiverUid.toString(), mAuth?.currentUser?.email+"님이 메시지를 보냈습니다", "확인해주세여ㅎ")
         }
-
-        // 알림 발생
-        getKeyword()
 
         getMessage()
 
@@ -159,42 +158,6 @@ class ChatActivity : AppCompatActivity() {
                 }
             }
             )
-    }
-
-    private fun getKeyword() {
-        // ChildEventListener 등록
-        val childEventListener = object : ChildEventListener {
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                // 글이 추가되었을 때 처리하는 로직
-                val post = snapshot.getValue(Message::class.java)
-                // 코루틴을 시작하여 백그라운드에서 실행
-                GlobalScope.launch {
-                    if (post?.sendId?.toString().equals(receiverUid.toString())) {
-                        sendNotification()
-                    }
-                }
-            }
-
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                // 글이 변경되었을 때 처리하는 로직
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-                // 글이 삭제되었을 때 처리하는 로직
-            }
-
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-                // 글의 순서가 변경되었을 때 처리하는 로직
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // 에러 처리
-            }
-        }
-
-        // posts 경로에 ChildEventListener 등록
-        mDbRef.child("chats").child(receiverRoom).child("messages")
-            .addChildEventListener(childEventListener)
     }
 
     @SuppressLint("MissingPermission")
