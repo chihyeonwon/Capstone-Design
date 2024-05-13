@@ -809,7 +809,7 @@ Responbody.create() is deprecated ->  val body = jsonObject.toString().toRequest
 
 ```
 #### 채팅 기능에 백그라운드 알림 기능 확인
-
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/deaba78d-b451-4ac1-8d2e-ca317cea2b8c)
 ```
 백그라운드일 때 채팅을 보내면 알림이 발생하는 것을 확인하였다.
 ```
