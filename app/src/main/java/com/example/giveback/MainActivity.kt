@@ -24,6 +24,7 @@ import com.example.giveback.Keyword.KeywordSearchedActivity
 import com.example.giveback.QnABoard.KeywordStatusModel
 import com.example.giveback.QnABoard.QnaBoardModel
 import com.example.giveback.utils.FBRef
+import com.example.giveback.utils.FcmPush
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
@@ -134,10 +135,7 @@ class MainActivity : AppCompatActivity() {
             val map = mutableMapOf<String, Any>()
             map["pushToken"] = token!!
 
-            // 토큰을 DB에 저장
-            FBRef.tokenRef
-                .child(uid!!)
-                .setValue(map)
+            FirebaseFirestore.getInstance().collection("pushtokens").document(uid!!).set(map)
 
         })
     }
