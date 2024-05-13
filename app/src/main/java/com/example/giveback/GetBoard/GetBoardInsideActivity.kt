@@ -2,28 +2,22 @@ package com.example.giveback.GetBoard
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.giveback.Chatting.ChatActivity
-import com.example.giveback.GalleryAdapter
 import com.example.giveback.R
-import com.example.giveback.comment.CommentLVAdpater
-import com.example.giveback.comment.CommentModel
 import com.example.giveback.databinding.ActivityGetBoardInsideBinding
 import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -64,6 +58,18 @@ class GetBoardInsideActivity : AppCompatActivity() {
         writerEmail = intent.getStringExtra("email").toString()
         writerUid = intent.getStringExtra("uid").toString()
 
+        // 공유 아이콘 클릭 시
+        binding.sharebtn.setOnClickListener {
+            val msg = Intent(Intent.ACTION_SEND)
+
+            msg.addCategory(Intent.CATEGORY_DEFAULT)
+            msg.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.example.giveback")
+            msg.putExtra(Intent.EXTRA_TITLE, "제목")
+            msg.type = "text/plain"
+            startActivity(Intent.createChooser(msg, "앱을 선택해 주세요"))
+        }
+
+        // 채팅하기 버튼 클릭 시
         binding.chatBtn.setOnClickListener {
             val intent = Intent(this, ChatActivity::class.java)
             intent.putExtra("uid", writerUid)
