@@ -43,8 +43,8 @@ class FcmPush() {
 
                 var pushDTO = PushDTO()
                 pushDTO.to = token
-                pushDTO.notification?.title = title
-                pushDTO.notification?.body = message
+                pushDTO.notification.title = title
+                pushDTO.notification.body = message
 
                 val jsonObject = gson?.toJson(pushDTO)
 
