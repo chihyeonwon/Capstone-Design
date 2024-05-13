@@ -782,6 +782,8 @@ com.google.code.gson 2.10.1
 androidx.mulitidex 2.0.1<-8개까지만 요청(multidex 오류 발생하기 때문에)
 라이브러리 추가하고 defaultConfig안에 multiDexEnabled true 추가
 ```
+## 24.05.13
+#### FCMHttp -> Http V1 마이그레이션
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/0171e410-6d2a-48ca-a846-dd89bf7cf951)
 ```
 기존 Http 에서 HTTP V1으로 마이그레이션
