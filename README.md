@@ -808,3 +808,8 @@ Responbody.create() is deprecated ->  val body = jsonObject.toString().toRequest
 메인액티비티에서 onStop으로 백그라운드로 이동했을 때 알림이 발생하는 지 실험, 알림이 발생하는 것을 확인
 
 ```
+#### 채팅 기능에 백그라운드 알림 기능 확인
+
+```
+백그라운드일 때 채팅을 보내면 알림이 발생하는 것을 확인하였다.
+```
