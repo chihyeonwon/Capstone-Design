@@ -799,3 +799,9 @@ androidx.mulitidex 2.0.1<-8개까지만 요청(multidex 오류 발생하기 때�
 [구글 코솔에서만 접속 가능한 문제 해결](https://velog.io/@mary0393/Firebase-Firestore-%EA%B5%AC%EA%B8%80-%EC%BD%98%EC%86%94%EC%97%90%EC%84%9C%EB%A7%8C-%EC%A0%91%EA%B7%BC-%EA%B0%80%EB%8A%A5%ED%95%9C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/2e6e47b3-4186-4e2f-ac8c-cf325c879b72)
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/7f448920-91f7-4857-9ef3-f5050e48778d)
+
+#### FCM 알림 발생 성공
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/83a1df0c-8119-476b-9fe8-fd62ed3483a0)
+
+
+                val body = jsonObject.toString().toRequestBody("application/json; charset=utf-8".toMediaType())
