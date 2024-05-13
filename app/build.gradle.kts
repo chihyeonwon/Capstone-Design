@@ -103,6 +103,6 @@ dependencies {
     implementation("com.google.firebase:firebase-storage-ktx:20.2.1")
 
     // 파이어베이스 클라우드 메시징을 사용하기 위함
-    implementation("com.google.firebase:firebase-messaging-ktx:23.0.8")
+    implementation("com.google.firebase:firebase-messaging-ktx:12.0.0")
     implementation("com.google.firebase:firebase-analytics-ktx:21.1.1")
 }
