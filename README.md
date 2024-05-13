@@ -802,6 +802,9 @@ androidx.mulitidex 2.0.1<-8개까지만 요청(multidex 오류 발생하기 때�
 
 #### FCM 알림 발생 성공
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/83a1df0c-8119-476b-9fe8-fd62ed3483a0)
+```
+Responbody.create() is deprecated ->  val body = jsonObject.toString().toRequestBody("application/json; charset=utf-8".toMediaType()
 
+메인액티비티에서 onStop으로 백그라운드로 이동했을 때 알림이 발생하는 지 실험, 알림이 발생하는 것을 확인
 
-                val body = jsonObject.toString().toRequestBody("application/json; charset=utf-8".toMediaType())
+```
