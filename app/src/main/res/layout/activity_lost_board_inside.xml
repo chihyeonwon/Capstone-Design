@@ -23,6 +23,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/sharebtn"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/share"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/boardSettingIcon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+
                     <ImageView
                         android:visibility="invisible"
                         android:id="@+id/boardSettingIcon"
