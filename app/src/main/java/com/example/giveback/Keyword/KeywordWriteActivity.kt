@@ -228,7 +228,6 @@ class KeywordWriteActivity : AppCompatActivity() {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 // 글이 추가되었을 때 처리하는 로직
                 val post = snapshot.getValue(GetBoardModel::class.java)
-                val post2 = snapshot.getValue(KeywordStatusModel::class.java)
                 // 코루틴을 시작하여 백그라운드에서 실행
                 GlobalScope.launch {
                     if(post?.category.equals(findViewById<TextView>(R.id.keywordArea).text.toString())) {
@@ -245,11 +244,7 @@ class KeywordWriteActivity : AppCompatActivity() {
                 val post = snapshot.getValue(GetBoardModel::class.java)
                 val post2 = snapshot.getValue(KeywordStatusModel::class.java)
                 // 코루틴을 시작하여 백그라운드에서 실행
-                GlobalScope.launch {
-                    if(post?.category.equals(findViewById<TextView>(R.id.keywordArea).text.toString())) {
-                        sendNotification()
-                    }
-                }
+
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -315,31 +310,6 @@ class KeywordWriteActivity : AppCompatActivity() {
             val notificationManager: NotificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
-        }
-    }
-
-    @SuppressLint("MissingPermission")
-    private fun sendNotification() {
-        val intent = Intent(this, KeywordSearchedActivity::class.java)
-        intent.putExtra("키워드명", binding.keywordArea.text.toString())
-        val pendingIntent = PendingIntent.getActivity(
-            this@KeywordWriteActivity,
-            (System.currentTimeMillis()).toInt(),
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
-        )
-
-        val builder = NotificationCompat.Builder(this, "TestChannel")
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle("키워드로 등록한 ${binding.keywordArea.text.toString()} 게시글이 올라왔습니다.")
-            .setContentText("앱을 실행하여 분실물을 확인하세요")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(true)
-
-        // Display the notification
-        with(NotificationManagerCompat.from(this)) {
-            notify((System.currentTimeMillis()).toInt(), builder.build())
         }
     }
 }

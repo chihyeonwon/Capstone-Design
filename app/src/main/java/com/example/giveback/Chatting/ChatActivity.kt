@@ -159,31 +159,4 @@ class ChatActivity : AppCompatActivity() {
             }
             )
     }
-
-    @SuppressLint("MissingPermission")
-    private fun sendNotification() {
-
-        val intent = Intent(this, ChatActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(
-            this@ChatActivity,
-            (System.currentTimeMillis()).toInt(),
-            intent,
-            PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
-        )
-        intent.putExtra("email","${receiverEmail}")
-
-        val builder = NotificationCompat.Builder(this, "TestChannel")
-            .setSmallIcon(R.drawable.notification_icon)
-            .setContentTitle("${receiverEmail}가 채팅을 걸어왔습니다")
-            .setContentText("앱을 실행하여 채팅을 시작하세요")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(true)
-
-        // Display the notification
-        with(NotificationManagerCompat.from(this)) {
-            notify((System.currentTimeMillis()).toInt(), builder.build())
-        }
-    }
-
 }
