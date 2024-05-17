@@ -828,3 +828,8 @@ MyFirebaseMessagingService의 onMessageReceived 메서드를 오버라이딩 한
 #### 키워드 알림 포그라운드 확인
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/c8d07ca4-1ccd-415b-8cf7-d20fd8d3e8fe)
 
+#### 알림 body 수정
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d69faebc-d845-4191-a6ed-c7aa21bf0506)
+```
+마지막 보낸 메시지가 알림의 메시지로 오도록 수정하였습니다.
+```
