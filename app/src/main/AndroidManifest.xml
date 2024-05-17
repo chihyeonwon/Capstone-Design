@@ -149,7 +149,7 @@
             android:resource="@color/mainColor">
         </meta-data>
 
-        <service android:name=".fcm.MyFirebaseMessageService"
+        <service android:name="MyFirebaseMessagingService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
