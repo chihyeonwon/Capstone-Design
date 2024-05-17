@@ -116,7 +116,7 @@ class ChatActivity : AppCompatActivity() {
             binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount)
             messageAdapter.notifyDataSetChanged()
             
-            FcmPush.instance.sendMessage(receiverUid.toString(), mAuth?.currentUser?.email+"님이 메시지를 보냈습니다", "확인해주세여ㅎ")
+            FcmPush.instance.sendMessage(receiverUid.toString(), mAuth?.currentUser?.email+"님이 메시지를 보냈습니다", "$message")
         }
 
         getMessage()
