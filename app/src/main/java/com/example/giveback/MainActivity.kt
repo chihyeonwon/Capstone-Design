@@ -10,6 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PowerManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -138,5 +139,29 @@ class MainActivity : AppCompatActivity() {
             FirebaseFirestore.getInstance().collection("pushtokens").document(uid!!).set(map)
 
         })
+    }
+
+    // 싱글톤
+
+    object PushUtils {
+        private var mWakeLock: PowerManager.WakeLock? = null
+
+        @SuppressLint("InvalidWakeLockTag")
+        fun acquireWakeLock(context: Context) {
+            val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+            mWakeLock = pm.newWakeLock(
+                PowerManager.FULL_WAKE_LOCK or
+                        PowerManager.ACQUIRE_CAUSES_WAKEUP or
+                        PowerManager.ON_AFTER_RELEASE, "WAKEUP"
+            )
+            mWakeLock!!.acquire(3000)
+        }
+
+        fun releaseWakeLock() {
+            if (mWakeLock != null) {
+                mWakeLock!!.release()
+                mWakeLock = null
+            }
+        }
     }
 }
