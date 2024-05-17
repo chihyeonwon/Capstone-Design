@@ -834,8 +834,8 @@ MyFirebaseMessagingService의 onMessageReceived 메서드를 오버라이딩 한
 마지막 보낸 메시지가 알림의 메시지로 오도록 수정하였습니다.
 ```
 ## 24.05.18 
-#### 키워드 알림 클릭 시 화면 인텐트
-
+#### 포그라운드&백그라운드 알림 아이콘 수정
 ```
-키워드 알림을 클릭했을 때 키워드로 검색된 페이지로 화면이 이동되도록 수정하였습니다.
+아이콘 수정하려는데 R 안드로이드 내장 이미지로 계속 인식되어서 drawable 에 있는 notification_icon을 찾지 못하는 문제가 있었는데
+import android.R을 삭제하니까 로컬 drawable 파일에 있는 notification_icon으로 수정할 수 있었다.
 ```
