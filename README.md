@@ -815,3 +815,16 @@ Responbody.create() is deprecated ->  val body = jsonObject.toString().toRequest
 
 ps 포그라운드일때는 작동안하는 문제를 해결할 예정
 ```
+## 24.05.17 
+#### FCM 포그라운드 알림 기능 개발 완료
+#### MyFirebaseMessagingService.kt
+```
+MyFirebaseMessagingService의 onMessageReceived 메서드를 오버라이딩 한후 포그라운드 메시지를 보내도록 채널을 생성한 후
+알림에 대한 설정을 진행하였다.
+```
+#### 채팅 알림 포그라운드 확인
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/047f4388-eb0e-4e11-9210-e05f90cbf513)
+
+#### 키워드 알림 포그라운드 확인
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/c8d07ca4-1ccd-415b-8cf7-d20fd8d3e8fe)
+
