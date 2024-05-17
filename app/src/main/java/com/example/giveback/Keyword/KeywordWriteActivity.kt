@@ -58,8 +58,6 @@ class KeywordWriteActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_keyword_write)
 
-        createNotificationChannel()
-
         // 카테고리를 선택해주세요 버튼을 눌렀을 때 카테고리 설정 창으로 이동한다.
         binding.keywordArea.setOnClickListener {
             val mDialogView = LayoutInflater.from(this).inflate(R.layout.category_item, null)
@@ -296,20 +294,6 @@ class KeywordWriteActivity : AppCompatActivity() {
                         .show()
                 }
             }
-        }
-    }
-
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "TestChannel"
-            val descriptionText = "Your channel description here"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(name, name, importance).apply {
-                description = descriptionText
-            }
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
         }
     }
 }
