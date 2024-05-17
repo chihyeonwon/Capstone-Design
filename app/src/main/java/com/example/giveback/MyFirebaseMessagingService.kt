@@ -42,7 +42,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     private fun sendNotification(title: String, body: String) {
 
         Log.d("FCMLog", "호출")
-
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
@@ -66,7 +65,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channel = NotificationChannel(chId, chName, NotificationManager.IMPORTANCE_HIGH)
         manager.createNotificationChannel(channel)
-        manager.notify(0, notiBuilder.build())
+        manager.notify((System.currentTimeMillis()).toInt(), notiBuilder.build())
     }
 
 }
