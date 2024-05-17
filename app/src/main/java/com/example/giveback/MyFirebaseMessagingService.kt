@@ -1,6 +1,5 @@
 package com.example.giveback
 
-import android.R
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -56,7 +55,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val chName = "myChName"
         val soundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notiBuilder: NotificationCompat.Builder = NotificationCompat.Builder(this, chId)
-            .setSmallIcon(R.mipmap.sym_def_app_icon)
+            .setSmallIcon(R.drawable.notification_icon)
             .setContentTitle(title)
             .setContentText(body)
             .setContentTitle(URLDecoder.decode(title, "UTF-8"))
