@@ -49,13 +49,15 @@
 
 ***
 # 컴포넌트
-- **Front**
-
-- **Back**
+- Firebase Authentication
+- Firebase Realtime Database
+- Firebase FireStore
+- Firebase Storage
+- Firebase Cloud Messaging
+- Firebase Dynamic Links
 - 
 - **Device**
-  - 
-
+  - Android
 
 ***
 # 주기능
@@ -74,7 +76,8 @@
 </br>
 
 >회원가입 진행시 유효성 검사를 실시간으로 진행하며, 
-모든 유효성 검사를 충족시 회원가입을 진행합니다.  
+모든 유효성 검사를 충족시 회원가입을 진행합니다.
+회원가입 시 학교 이메일로 이메일 인증을 진행합니다.
 
 </br></br>
 </br>
@@ -91,7 +94,7 @@
 </p>
 </br>
 
->메인페이지에서는 
+> 메인페이지에서는 습득물과 분실물을 볼 수 있는 게시판을 제공합니다.
 
 <p align="center">
 </p>
