@@ -111,7 +111,6 @@
 
 >돌려드림 서비스에 자동 분류되어 업로드된 분실물들의 목록을 볼 수 있습니다. 
 해당 게시물을 클릭하면 상세 정보를 볼 수 있으며, 작성자의 경우 수정 및 삭제가 가능합니다. 
-사진으로부터 가져온 위치 메타데이터를 기반으로 구글 지도와 연동되어 클릭시 분실품을 찾으러 갈 수 있도록 구글 지도에 맵핀을 표시하여줍니다.
 
 </br>
 
@@ -135,34 +134,24 @@
 
 </br>
 
-
-
-### 사진 메타데이터 자동 크롤링
->사진을 업로드하는 것으로 분실물의 위치와 발견날짜를 자동으로 불러오게 하기 위해서 사진메타데이터 정보를 수집하여 사용하였습니다.
-~~~python
-from PIL import Image
-from PIL.ExifTags import TAGS
-
-def metadata(img_path=IMAGE_PATH):
-  img = Image.open(img_path)
-  info = img._getexif();
-  img.close()
-  
-  taglabel = {}
-  for tag, value in info.items():
-    decoded = TAGS.get(tag, tag)
-    taglabel[decoded] = value
-
-  ...
-
-  return "https://www.google.com/maps/place/"+str(Lat)+"+"+str(Lon), taglabel['DateTimeOriginal']
-~~~
->PIL의 ExifTags 라이브러리를 사용하였습니다. 내부 연산으로 경도와 위도를 뽑아낸 후 구글 맵스 URL과 결합하여 링크를 생성하여 응답하도록 하였습니다.
-
-</br></br>
-
 # Collaborators
 <table>
+</tr>
+  <tr>
+    </td>
+    <td align="center">
+  <a href="https://github.com/chihyeonwon">
+    <img src="markdown/ljh.jpg" width="100px;" alt=""/>
+    원치현<br>
+    PM, Back End
+  </a>
+    </td>
+    <td align="center">
+  <a href="https://github.com/doncici77">
+    <img src="markdown/ljh.jpg" width="100px;" alt=""/>
+    박광호<br>
+    Back End
+  </a>
   <tr>
     <td align="center">
   <a href="https://github.com/Heestroy-118">
@@ -178,32 +167,7 @@ def metadata(img_path=IMAGE_PATH):
     Front End
   </a>
 </td>
-</tr>
-  <tr>
     </td>
-    <td align="center">
-  <a href="https://github.com/chihyeonwon">
-    <img src="markdown/ljh.jpg" width="100px;" alt=""/>
-    원치현<br>
-    Back End
-  </a>
-</td>
-    </td>
-    <td align="center">
-  <a href="https://github.com/jin0792">
-    <img src="markdown/ljh.jpg" width="100px;" alt=""/>
-    소진오<br>
-    Back End
-  </a>
-</td>
-    </td>
-    <td align="center">
-  <a href="https://github.com/doncici77">
-    <img src="markdown/ljh.jpg" width="100px;" alt=""/>
-    박광호<br>
-    Back End
-  </a>
-</td>
     </td>
     <td align="center">
   <a href="https://github.com/youngmumi">
@@ -211,6 +175,15 @@ def metadata(img_path=IMAGE_PATH):
     김유정<br>
     Back End
   </a>  
+</td>
+  </td>
+    </td>
+    <td align="center">
+  <a href="https://github.com/jin0792">
+    <img src="markdown/ljh.jpg" width="100px;" alt=""/>
+    소진오<br>
+    Back End
+  </a>
 </td>
   <tr>
   </tr>
