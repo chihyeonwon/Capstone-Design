@@ -839,3 +839,8 @@ MyFirebaseMessagingService의 onMessageReceived 메서드를 오버라이딩 한
 아이콘 수정하려는데 R 안드로이드 내장 이미지로 계속 인식되어서 drawable 에 있는 notification_icon을 찾지 못하는 문제가 있었는데
 import android.R을 삭제하니까 로컬 drawable 파일에 있는 notification_icon으로 수정할 수 있었다.
 ```
+## 24.05.19
+#### 토큰 업데이트
+```
+토큰이 기기에 종속되는 문제 
+```
