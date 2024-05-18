@@ -820,3 +820,4 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 ```
 토큰이 기기에 종속되는 문제 
 ```
+[토큰 관리](https://seungwoolog.tistory.com/88)
