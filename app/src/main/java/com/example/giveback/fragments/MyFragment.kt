@@ -16,6 +16,7 @@ import com.example.giveback.R
 import com.example.giveback.auth.LoginActivity
 import com.example.giveback.databinding.FragmentMyBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 // 사용자 페이지
 class MyFragment : Fragment() {
@@ -89,6 +90,13 @@ class MyFragment : Fragment() {
                 .setTitle("로그아웃")
                 .setMessage("계정을 로그아웃 합니다.")
                 .setPositiveButton("확인") { dialog, which ->
+
+                    val uid = FirebaseAuth.getInstance().currentUser?.uid
+
+                    // 파이어베이스 토큰 삭제
+                    FirebaseFirestore.getInstance().collection("pushtokens").document(uid!!).delete()
+
+                    // 로그아웃
                     auth.signOut()
 
                     // LoginActivity로 화면 이동
