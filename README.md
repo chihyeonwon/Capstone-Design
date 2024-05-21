@@ -836,7 +836,8 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 #### UI 폰트 수정 
 [프리텐다드 무료 폰트](https://noonnu.cc/font_page/694)    
 [피그마 Figma](https://www.figma.com/)       
-[M3 머터리얼 디자인](https://m2.material.io/develop/android)      
+[M3 머터리얼 디자인](https://m2.material.io/develop/android)    
+[폰트 적용법](https://blog.naver.com/yessjh2/223154394391)
 
 #### 분실물 & 습득물 게시판 UI 개선
 
