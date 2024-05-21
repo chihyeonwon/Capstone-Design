@@ -9,6 +9,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:fontFamily="@font/mainstyle"
             android:layout_margin="30dp"
             android:padding="10dp"
             android:background="@color/mainColor"
@@ -29,6 +30,7 @@
             android:layout_margin="10dp">
 
             <EditText
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/searchWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,6 +39,7 @@
                 android:inputType="text" />
 
             <Button
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/searchBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
