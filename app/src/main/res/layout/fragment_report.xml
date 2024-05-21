@@ -9,15 +9,6 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/icon"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
-
         <LinearLayout
             android:id="@+id/linearLayout10"
             android:layout_width="match_parent"
@@ -40,12 +31,13 @@
                     android:src="@drawable/getreport" />
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="습득물 입력"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                    android:textSize="20dp">
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
@@ -60,12 +52,13 @@
                     android:src="@drawable/lostreport" />
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="분실물 입력"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold"></TextView>
+                    android:textSize="20dp">
+                </TextView>
             </LinearLayout>
         </LinearLayout>
 
