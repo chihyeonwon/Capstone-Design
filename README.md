@@ -841,6 +841,7 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 #### 분실물 & 습득물 게시판 UI 개선
 
 ##### Before
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/368ed223-71c1-4b63-b9db-0b98f43acf70)
 
 
 ##### After
