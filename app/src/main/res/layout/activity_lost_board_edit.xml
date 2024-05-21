@@ -21,9 +21,10 @@
                     android:layout_height="60dp">
 
                     <TextView
+                        android:fontFamily="@font/mainstyle"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:textSize="20sp"
+                        android:textSize="30sp"
                         android:text="분실물 정보 수정 페이지"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -44,6 +45,7 @@
                     android:layout_marginTop="20dp"/>
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/emailArea"
                     android:textSize="25dp"
                     android:textColor="@color/black"
@@ -61,6 +63,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/titleArea"
                     android:textSize="25dp"
                     android:textColor="@color/black"
@@ -79,6 +82,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:textSize="20dp"
                     android:id="@+id/lostCategoryArea"
                     android:layout_margin="20dp"
@@ -96,6 +100,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:text="분실일자를 선택해주세요"
                     android:textSize="25dp"
                     android:id="@+id/lostDateArea"
@@ -124,6 +129,7 @@
                         android:orientation="vertical">
 
                         <Spinner
+                            android:fontFamily="@font/boardtext"
                             android:id="@+id/lostlocationArea"
                             android:layout_width="299dp"
                             android:layout_height="71dp"
@@ -133,6 +139,7 @@
                             android:spinnerMode="dropdown" />
 
                         <EditText
+                            android:fontFamily="@font/boardtext"
                             android:id="@+id/detaillostArea"
                             android:layout_margin="20dp"
                             android:background="@android:color/transparent"
@@ -169,6 +176,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/contentArea"
                     android:hint="내용을 입력해주세요"
                     android:layout_margin="20dp"
@@ -185,6 +193,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/editBtn"
                     android:text="수정"
                     android:textColor="@color/black"
