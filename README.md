@@ -832,6 +832,6 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 -> 로그아웃을 했을 때 해당 uid 값을 가지는 document의 토큰 데이터를 삭제하도록 하여 토큰이 기기에 종속되는 문제를 해결하였습니다. 
 ```
 #### UI 폰트 수정 
-[프리텐다드](https://noonnu.cc/font_page/694)
-[피그마 Figma](https://www.figma.com/)
-[M3 머터리얼 디자인](https://m2.material.io/develop/android)
+[프리텐다드 무료 폰트](https://noonnu.cc/font_page/694)    
+[피그마 Figma](https://www.figma.com/)       
+[M3 머터리얼 디자인](https://m2.material.io/develop/android)      
