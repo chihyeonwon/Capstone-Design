@@ -833,7 +833,9 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 즉 1@gwnu.ac.kr 토큰이 데이터베이스에 저장되어 있기 때문에 발생되는 문제를
 -> 로그아웃을 했을 때 해당 uid 값을 가지는 document의 토큰 데이터를 삭제하도록 하여 토큰이 기기에 종속되는 문제를 해결하였습니다. 
 ```
-#### UI 폰트 수정 
+#### UI 디자인수정
+[What was IT 디자인 레퍼런스 ](![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/60f8a26f-b187-4e9c-86e8-4d10afbebb7e))
+
 [프리텐다드 무료 폰트](https://noonnu.cc/font_page/694)    
 [피그마 Figma](https://www.figma.com/)       
 [M3 머터리얼 디자인](https://m2.material.io/develop/android)    
