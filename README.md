@@ -858,3 +858,6 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 ```
 훨씬 나아짐
 ```
+## 24.05.22
+#### 채팅 UI 수정
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a1c594a4-988f-45f9-b7ec-315a97130b26)
