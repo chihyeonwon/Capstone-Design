@@ -123,7 +123,7 @@ class LostBoardInsideActivity : AppCompatActivity() {
                             .into(imageViewFromFB)
                     }
                 } else {
-                    imageViewFromFB?.isVisible = false
+
                 }
             })
 

@@ -135,7 +135,7 @@ class GetBoardInsideActivity : AppCompatActivity() {
                             .into(imageViewFromFB)
                     }
                 } else {
-                    imageViewFromFB?.isVisible = false
+
                 }
             })
 
