@@ -35,6 +35,7 @@
                 style="@style/AuthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:fontFamily="@font/boardtext"
                 android:hint="email"
                 android:textSize="25dp" />
 
@@ -62,17 +63,19 @@
                 android:background="#999999" />
 
             <Button
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/background_radius_yellow"
+                android:background="@drawable/background_radius"
                 android:text="로그인하기"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/joinBtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -80,18 +83,19 @@
                 android:text="회원가입하기"
                 android:textAlignment="center"
                 android:textColor="#ff00ff"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/resetPasswordBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_margin="20dp"
                 android:text="비밀번호 재설정"
                 android:textAlignment="center"
                 android:textColor="#007BFF"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
