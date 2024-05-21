@@ -17,38 +17,38 @@
         <LinearLayout
             android:background="#1111"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="70dp">
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:fontFamily="@font/mainstyle"
+                android:layout_marginTop="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginRight="110dp"
                 android:text="이메일"
                 android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textSize="18dp" />
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:fontFamily="@font/mainstyle"
+                android:layout_marginTop="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
+                android:layout_marginRight="80dp"
                 android:text="제목"
                 android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textSize="18dp" />
 
             <TextView
+                android:fontFamily="@font/mainstyle"
                 android:id="@+id/statusArea"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상태"
                 android:textColor="@color/black"
-                android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
