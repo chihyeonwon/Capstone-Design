@@ -11,10 +11,10 @@
         android:background="@color/white">
 
         <TextView
+            android:fontFamily="@font/mainstyle"
             android:background="@color/mainColor"
             android:text="분실물 상세 검색"
-            android:textStyle="bold"
-            android:textSize="30dp"
+            android:textSize="40dp"
             android:textColor="@color/black"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -32,16 +32,18 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:text="카테고리명"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="25dp"
+                    android:textSize="30dp"
                     android:textColor="@color/black">
                 </TextView>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:textSize="20dp"
                     android:id="@+id/getCategoryArea"
                     android:layout_margin="20dp"
@@ -59,16 +61,19 @@
                 </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/boardtext"
                     android:text="분실일자"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="25dp"
+                    android:textSize="30dp"
                     android:textColor="@color/black">
                 </TextView>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:textSize="20dp"
                     android:id="@+id/lostStartDate"
                     android:layout_margin="20dp"
@@ -84,6 +89,7 @@
                 </ImageView>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/lostEndDate"
                     android:textSize="20dp"
                     android:layout_margin="20dp"
@@ -100,10 +106,6 @@
                     android:layout_marginRight="20dp">
                 </LinearLayout>
 
-
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
@@ -113,6 +115,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/searchBtn"
                     android:layout_margin="50dp"
                     android:layout_gravity="center"
