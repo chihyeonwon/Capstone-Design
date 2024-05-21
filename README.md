@@ -1,6 +1,8 @@
 ***
 # 돌려드림 캡스톤 디자인 프로젝트
 
+## 누군가에겐 그저 단순한 물건일지라도 누군가에겐 추억이 담긴 무엇보다도 소중한 물건입니다.
+그 소중한 물건을 찾을 수 있도록 컴퓨터공학과 6인이 돌려드림 어플을 개발하게 되었습니다. 
 </br>
 
 [![All Collaborators](https://img.shields.io/badge/all_Collaborators-6-orange.svg)](#Collaborators)
