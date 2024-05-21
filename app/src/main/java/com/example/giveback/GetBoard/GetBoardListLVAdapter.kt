@@ -62,9 +62,8 @@ class GetBoardListLVAdapter(val boardList : MutableList<GetBoardModel>, val boar
                         .error(R.drawable.loading) //리소스를 불러오다가 에러 발생 시 보여줄 이미지
                         .into(imageViewFromFB)
                 }
-
             } else {
-                imageViewFromFB?.isVisible = false
+
             }
         }
 
@@ -78,9 +77,9 @@ class GetBoardListLVAdapter(val boardList : MutableList<GetBoardModel>, val boar
             itemLinearLayoutView?.setBackgroundColor(Color.parseColor("#EEEEEE"))
         }
 
-        title!!.text = "습득명: ${boardList[position].title}"
-        getLocation!!.text = "습득위치: ${boardList[position].getLocation} ${boardList[position].getdetailLocation}"
-        keepLocation!!.text = "보관위치: ${boardList[position].keepLocation} ${boardList[position].keepdetailLocation}"
+        title!!.text = boardList[position].title
+        getLocation!!.text = "${boardList[position].getLocation} ${boardList[position].getdetailLocation}"
+        keepLocation!!.text = "${boardList[position].keepLocation} ${boardList[position].keepdetailLocation}"
         getDate!!.text = boardList[position].getDate
 
         return view!!

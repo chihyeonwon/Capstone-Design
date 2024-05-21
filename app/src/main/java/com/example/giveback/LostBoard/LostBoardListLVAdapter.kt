@@ -60,7 +60,7 @@ class LostBoardListLVAdapter(val boardList : MutableList<LostBoardModel>, val bo
                         .into(imageViewFromFB)
                 }
             } else {
-                imageViewFromFB?.isVisible = false
+
             }
         }
 
@@ -73,8 +73,8 @@ class LostBoardListLVAdapter(val boardList : MutableList<LostBoardModel>, val bo
             itemLinearLayoutView?.setBackgroundColor(Color.parseColor("#EEEEEE"))
         }
 
-        title!!.text = "분실물명: ${boardList[position].title}"
-        LostLocation!!.text = "분실위치: ${boardList[position].lostLocation} ${boardList[position].lostdetailLocation}"
+        title!!.text = boardList[position].title
+        LostLocation!!.text = "${boardList[position].lostLocation} ${boardList[position].lostdetailLocation}"
         LostDate!!.text = boardList[position].lostDate
 
         return view!!
