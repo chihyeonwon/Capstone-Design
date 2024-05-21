@@ -6,10 +6,10 @@
     android:orientation="vertical">
 
     <Button
+        android:fontFamily="@font/boardtext"
         android:id="@+id/editBtn"
         android:text="수정 버튼"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:layout_margin="20dp"
         android:background="@drawable/background_radius_yellow"
@@ -17,10 +17,10 @@
         android:layout_height="wrap_content"/>
 
     <Button
+        android:fontFamily="@font/boardtext"
         android:id="@+id/removeBtn"
         android:text="삭제 버튼"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="25sp"
         android:textColor="@color/black"
         android:layout_margin="20dp"
         android:background="@drawable/background_radius_yellow"
