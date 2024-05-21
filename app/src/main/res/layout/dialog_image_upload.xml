@@ -12,10 +12,10 @@
         android:orientation="horizontal">
 
         <TextView
+            android:fontFamily="@font/mainstyle"
             android:layout_margin="20dp"
             android:text="사진 등록"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -37,6 +37,7 @@
     </LinearLayout>
 
     <Button
+        android:fontFamily="@font/boardtext"
         android:id="@+id/cameraButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,10 +46,10 @@
         android:drawableLeft="@android:drawable/ic_menu_camera"
         android:text="카메라로 촬영하기"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 
     <Button
+        android:fontFamily="@font/boardtext"
         android:id="@+id/galleryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,10 +57,10 @@
         android:drawableLeft="@android:drawable/ic_menu_gallery"
         android:text="앨범에서 선택하기"
         android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 
     <Button
+        android:fontFamily="@font/boardtext"
         android:id="@+id/closeButton"
         android:text="닫기"
         android:textSize="20sp"
