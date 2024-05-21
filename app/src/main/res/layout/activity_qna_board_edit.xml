@@ -22,9 +22,9 @@
                     android:layout_height="60dp">
 
                     <TextView
+                        android:fontFamily="@font/mainstyle"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
+                        android:textSize="30sp"
                         android:text="QnA 수정 페이지"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -38,6 +38,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/titleArea"
                     android:layout_margin="20dp"
                     android:background="@android:color/transparent"
@@ -54,6 +55,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/contentArea"
                     android:hint="내용을 입력해주세요"
                     android:layout_margin="20dp"
@@ -70,6 +72,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/editBtn"
                     android:text="수정"
                     android:textColor="@color/black"
