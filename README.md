@@ -854,4 +854,7 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 ```
 폰트크기와 사진의크기가 너무 크다는 의견 -> 1/2 씩 줄이면 적당할 것으로 예상
 ```
-
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/3c43596a-2a3b-4f38-a7d6-12a8d9a7fe42)
+```
+훨씬 나아짐
+```
