@@ -846,6 +846,7 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 
 
 ##### After
-![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a10812f9-f4a9-4a23-bda6-580156834099)
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d1a66772-c679-4b83-bd17-9d9ecd4e93e5)
+
 
 
