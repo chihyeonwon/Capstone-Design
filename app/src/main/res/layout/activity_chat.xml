@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="Chatting.ChatActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/my_toolbar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#152134"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            tools:ignore="MissingConstraints" />
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/my_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="#152134"
+                        android:elevation="4dp"
+                        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="-39dp" />
+
+                </LinearLayout>
+            </ScrollView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
         <!-- 대화 내용 -->
@@ -39,6 +59,7 @@
             android:weightSum="100">
 
             <EditText
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/message_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
@@ -48,6 +69,7 @@
                 android:paddingStart="10dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/send_btn"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
