@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <LinearLayout
         android:weightSum="4"
@@ -11,11 +12,11 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/wallet"
-            android:layout_width="wrap_content"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/wallet"
             android:text="지갑"
@@ -65,13 +66,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:weightSum="4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="4">
 
         <Button
             android:id="@+id/device"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="1"
@@ -83,11 +84,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/cloth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/cloth"
             android:text="의류"
@@ -96,11 +97,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/sport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/sport"
             android:text="스포츠"
@@ -109,11 +110,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/car"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/car"
             android:text="자동차"
@@ -124,9 +125,9 @@
     </LinearLayout>
 
     <LinearLayout
-        android:weightSum="4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="4">
 
         <Button
             android:id="@+id/document"
@@ -142,11 +143,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/instrument"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/instrument"
             android:text="악기"
@@ -155,11 +156,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/certification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/certification"
             android:text="증명서"
@@ -168,11 +169,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:layout_weight = "1"
             android:id="@+id/etc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:background="#E0E0E0"
             android:drawableTop="@drawable/etc"
             android:text="기타"
@@ -181,8 +182,5 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>
