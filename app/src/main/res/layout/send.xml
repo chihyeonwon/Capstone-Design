@@ -12,6 +12,7 @@
         />
 
     <TextView
+        android:fontFamily="@font/boardtext"
         android:id="@+id/send_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,12 +25,13 @@
         android:gravity=""/>
 
     <TextView
+        android:background="@drawable/round_message_send"
+        android:fontFamily="@font/boardtext"
         android:id="@+id/send_message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
-        android:background="@color/mainColor"
         android:padding="10dp"
         android:text="보내는 메시지"
         android:textColor="@android:color/black"
