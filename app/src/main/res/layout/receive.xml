@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:fontFamily="@font/boardtext"
         android:id="@+id/sender"
         android:text="sender"
         android:textColor="@color/white"
@@ -23,12 +24,13 @@
 
 
             <TextView
+                android:background="@drawable/round_message_receive"
+                android:fontFamily="@font/boardtext"
                 android:id="@+id/receive_message_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_margin="5dp"
-                android:background="@color/white"
                 android:padding="10dp"
                 android:text="받는 메시지"
                 android:textColor="@color/black"
