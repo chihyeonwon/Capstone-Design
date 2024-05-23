@@ -21,7 +21,7 @@ import com.example.giveback.databinding.FragmentLostBinding
 import com.example.giveback.searchLost.SearchLostActivity
 import com.example.giveback.utils.FBRef
 
-// 습득물 페이지
+// 분실물 페이지
 class LostFragment : Fragment() {
 
     private lateinit var binding: FragmentLostBinding
