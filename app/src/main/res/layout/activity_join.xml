@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".auth.JoinActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +33,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:textSize="25dp"
+                android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
                 android:id="@+id/emailArea"
                 android:layout_width="match_parent"
@@ -43,7 +44,7 @@
                 android:id="@+id/emailokText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="5sp"
                 android:textColor="#FF0000"
                 android:paddingLeft="20dp" />
 
@@ -56,7 +57,7 @@
                 android:layout_marginRight="10dp"/>
 
             <EditText
-                android:textSize="25dp"
+                android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
                 android:id="@+id/passwordArea1"
                 android:layout_width="match_parent"
@@ -69,7 +70,7 @@
                 android:id="@+id/pwokText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="5sp"
                 android:textColor="#FF0000"
                 android:paddingLeft="20dp" />
 
@@ -82,7 +83,7 @@
                 android:layout_marginRight="10dp"/>
 
             <EditText
-                android:textSize="25dp"
+                android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
                 android:id="@+id/passwordArea2"
                 android:layout_width="match_parent"
@@ -107,7 +108,7 @@
 
             <!-- 이메일 인증 확인 버튼 추가 -->
             <Button
-                android:textSize="25dp"
+                android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
                 android:id="@+id/verifyEmailBtn"
                 android:text="이메일 인증하기"
@@ -121,7 +122,7 @@
             <!-- 회원가입 버튼 (기본적으로 비활성화) -->
             <Button
                 android:textColor="@color/black"
-                android:textSize="25dp"
+                android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
                 android:id="@+id/joinBtn"
                 android:text="회원가입하기"
