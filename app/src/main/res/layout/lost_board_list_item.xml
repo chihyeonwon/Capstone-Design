@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemView"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="140dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,14 +16,14 @@
             android:layout_weight="1" />
 
         <TextView
+            android:fontFamily="@font/boardtext"
             android:id="@+id/lostDateArea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="title"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -31,35 +31,83 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageArea"
-            android:layout_width="131dp"
-            android:layout_height="131dp">
-        </ImageView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="0dp"
+            android:layout_margin="15dp">
+
+            <ImageView
+                android:id="@+id/imageArea"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+
+        </androidx.cardview.widget.CardView>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/titleArea"
-                android:text="title"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="30sp"/>
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/lostlocationArea"
-                android:text="title"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30sp"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/boardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12sp"
+                    android:layout_margin="7dp"
+                    android:text="분실물명:"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:fontFamily="@font/boardtext"
+                    android:id="@+id/titleArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12sp"
+                    android:layout_margin="7dp"
+                    android:text="title"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:fontFamily="@font/boardtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12sp"
+                    android:layout_margin="7dp"
+                    android:text="분실 장소:"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:fontFamily="@font/boardtext"
+                    android:id="@+id/lostlocationArea"
+                    android:text="title"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_margin="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="12sp"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
