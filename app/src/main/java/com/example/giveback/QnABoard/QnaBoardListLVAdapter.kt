@@ -8,7 +8,6 @@ import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.giveback.R
-import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -35,7 +34,7 @@ class QnaBoardListLVAdapter(val boardList : MutableList<QnaBoardModel>, val boar
 
         //if(view== null) {
 
-            view = LayoutInflater.from(parent?.context).inflate(R.layout.board_list_item, parent,false)
+            view = LayoutInflater.from(parent?.context).inflate(R.layout.qna_board_list_item, parent,false)
         //}
 
         val email = view?.findViewById<TextView>(R.id.emailArea)
