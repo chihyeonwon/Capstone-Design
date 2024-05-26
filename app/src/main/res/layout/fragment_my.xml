@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="15sp"
-                android:background="#1111"
+                android:background="#CED4DA"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints"
@@ -26,6 +26,7 @@
 
                 <ImageView
                     android:layout_width="25dp"
+                    android:background="#E9ECEF"
                     android:layout_height="wrap_content"
                     android:layout_margin="15sp"
                     android:src="@drawable/account"></ImageView>
@@ -35,6 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="15sp"
+                    android:background="#E9ECEF"
                     android:fontFamily="@font/boardtext"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="email"
@@ -49,67 +51,68 @@
                 android:id="@+id/linearLayout9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30sp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="-184dp">
 
                 <Button
-                    android:background="@color/mainColor"
+                    android:background="#CED4DA"
                     android:id="@+id/board"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="5sp"
+                    android:layout_margin="5dp"
                     android:fontFamily="@font/boardtext"
-                    android:padding="15sp"
+                    android:padding="15dp"
                     android:text="게시물"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:textStyle="bold"></Button>
+                    android:textStyle="bold" />
 
                 <Button
-                    android:background="@color/mainColor"
+                    android:background="#CED4DA"
                     android:id="@+id/chatting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="5sp"
+                    android:layout_margin="5dp"
                     android:fontFamily="@font/boardtext"
-                    android:padding="15sp"
+                    android:padding="15dp"
                     android:text="채팅"
                     android:textColor="@color/black"
                     android:textSize="15sp"
-                    android:textStyle="bold"></Button>
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="15sp"
+                    android:layout_marginLeft="15dp"
                     android:orientation="horizontal">
 
                     <Button
-                        android:background="@color/mainColor"
                         android:id="@+id/keyword"
-                        android:layout_width="200dp"
+                        android:layout_width="214dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="5sp"
+                        android:layout_margin="5dp"
+                        android:background="#CED4DA"
                         android:fontFamily="@font/boardtext"
-                        android:padding="15sp"
+                        android:padding="15dp"
                         android:text="키워드"
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        android:textStyle="bold"></Button>
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/question"
-                        android:layout_width="50dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:src="@drawable/question"></ImageView>
+                        android:gravity="center_horizontal"
+                        android:src="@drawable/question" />
+
                 </LinearLayout>
 
 
@@ -129,7 +132,7 @@
                     android:id="@+id/logoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_yellow"
+                    android:background="@drawable/background_radius_gray"
                     android:padding="15sp"
                     android:text="로그아웃"
                     android:textColor="@color/black"
@@ -146,7 +149,7 @@
                     android:id="@+id/signoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_yellow"
+                    android:background="@drawable/background_radius_gray"
                     android:padding="15sp"
                     android:text="회원탈퇴"
                     android:textColor="@color/black"
