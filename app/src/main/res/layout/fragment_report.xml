@@ -111,8 +111,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/get"
-                android:background="#E0E0E0"/>
+                android:background="#E0E0E0"
+                android:src="@drawable/get" />
 
             <ImageView
                 android:id="@+id/tipTap"
@@ -127,8 +127,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/report"
-                android:background="#E0E0E0" />
+                android:background="#E0E0E0"
+                android:src="@drawable/report" />
 
             <ImageView
                 android:id="@+id/bookmarkTap"
