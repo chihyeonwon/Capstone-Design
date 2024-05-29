@@ -198,6 +198,13 @@ class SearchGetActivity : AppCompatActivity() {
         binding.searchBtn.setOnClickListener{
 
 
+            // 시작일과 종료일이 비어있는지 확인
+            if (binding.getStartDate.text.isEmpty() || binding.getEndDate.text.isEmpty()) {
+                Toast.makeText(this, "시작일과 종료일을 선택해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
             val intent = Intent(this, SearchedGetActivity::class.java)
             intent.putExtra("카테고리명",binding.getCategoryArea.text.toString())
             intent.putExtra("시작일", binding.getStartDate.text.toString())
