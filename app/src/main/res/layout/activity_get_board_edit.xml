@@ -45,6 +45,7 @@
                     android:layout_marginTop="20dp"/>
 
                 <TextView
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/emailArea"
                     android:textSize="25dp"
                     android:textColor="@color/black"
