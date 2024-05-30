@@ -21,6 +21,7 @@
                     android:layout_height="60dp">
 
                     <TextView
+                        android:fontFamily="@font/mainstyle"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -37,6 +38,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:textSize="20dp"
                     android:id="@+id/keywordArea"
                     android:layout_margin="20dp"
@@ -54,6 +56,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:fontFamily="@font/boardtext"
                     android:id="@+id/settingBtn"
                     android:text="설정하기"
                     android:textColor="@color/black"
