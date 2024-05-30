@@ -29,6 +29,7 @@ class SearchGetActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_search_get)
 
+        // 기본 날짜를 오늘 날짜로 지정
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -38,7 +39,7 @@ class SearchGetActivity : AppCompatActivity() {
 
         val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
 
-        // 날짜 선택
+        // 기본 시작일과 종료일을 오늘 날짜로 지정
         binding.getStartDate.text = dateFormat.format(calendar.time).toString()
         binding.getEndDate.text = dateFormat.format(calendar.time).toString()
 
