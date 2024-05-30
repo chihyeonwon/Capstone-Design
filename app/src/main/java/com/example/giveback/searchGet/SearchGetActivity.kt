@@ -2,26 +2,45 @@ package com.example.giveback.searchGet
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.R
 import com.example.giveback.databinding.ActivitySearchGetBinding
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.Calendar
+import java.util.Locale
 
 class SearchGetActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivitySearchGetBinding
 
     private lateinit var category: String
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_get)
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_search_get)
+
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        calendar.set(year, month, day)
+
+        val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
+
+        // 날짜 선택
+        binding.getStartDate.text = dateFormat.format(calendar.time).toString()
+        binding.getEndDate.text = dateFormat.format(calendar.time).toString()
 
         // 카테고리를 선택해주세요 버튼을 눌렀을 때 카테고리 설정 창으로 이동한다.
         binding.getCategoryArea.setOnClickListener {
