@@ -879,3 +879,7 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 
 
 ```
+## 24.05.31 
+#### 3. 채팅문제
+[스택 오버플로우 Android Toolbar moves up when keyboard appears](https://stackoverflow.com/questions/32649710/android-toolbar-moves-up-when-keyboard-appears)    
+[컴포즈 키보드 조작](https://velog.io/@mraz3068/Jetpack-Compose-Chat-Screen-Implementation )     
