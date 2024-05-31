@@ -1,35 +1,20 @@
 package com.example.giveback.Chatting
 
-import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.inputmethod.InputMethodManager
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.giveback.R
-import com.example.giveback.WebviewActivity
 import com.example.giveback.databinding.ActivityChatBinding
 import com.example.giveback.utils.FcmPush
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -61,6 +46,22 @@ class ChatActivity : AppCompatActivity() {
         binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
 
         binding.chatRecyclerView.adapter = messageAdapter
+
+            binding.chatRecyclerView.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
+                override fun onLayoutChange(
+                    v: View?,
+                    left: Int,
+                    top: Int,
+                    right: Int,
+                    bottom: Int,
+                    oldLeft: Int,
+                    oldTop: Int,
+                    oldRight: Int,
+                    oldBottom: Int
+                ) {
+                    binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount-1)
+                }
+            })
 
         // GetBoardInsideActivity에서 넘어온 데이터를 변수에 담기
         receiverEmail = intent.getStringExtra("email").toString()
@@ -122,6 +123,8 @@ class ChatActivity : AppCompatActivity() {
         getMessage()
 
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
