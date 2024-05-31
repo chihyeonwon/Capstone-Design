@@ -1,10 +1,19 @@
 package com.example.giveback.Chatting
 
+import android.app.Activity
+import android.graphics.Rect
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.giveback.R
 import com.example.giveback.databinding.ActivityChatBinding
@@ -17,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.text.SimpleDateFormat
 import java.util.Date
+
 
 class ChatActivity : AppCompatActivity() {
 
@@ -34,6 +44,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageAdapter: MessageAdapter
     var messageList: ArrayList<Message> = ArrayList()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,21 +58,47 @@ class ChatActivity : AppCompatActivity() {
 
         binding.chatRecyclerView.adapter = messageAdapter
 
-            binding.chatRecyclerView.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
-                override fun onLayoutChange(
-                    v: View?,
-                    left: Int,
-                    top: Int,
-                    right: Int,
-                    bottom: Int,
-                    oldLeft: Int,
-                    oldTop: Int,
-                    oldRight: Int,
-                    oldBottom: Int
-                ) {
-                    binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount-1)
-                }
-            })
+        binding.chatRecyclerView.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
+            override fun onLayoutChange(
+                v: View?,
+                left: Int,
+                top: Int,
+                right: Int,
+                bottom: Int,
+                oldLeft: Int,
+                oldTop: Int,
+                oldRight: Int,
+                oldBottom: Int
+            ) {
+                binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
+            }
+
+        })
+
+        //메시지 담을 변수
+        var message: String = ""
+
+        //버튼 비활성화
+        binding.sendBtn.isVisible = false
+
+        //EditText 값 있을때만 버튼 활성화
+        binding.messageEdit.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            //값 변경 시 실행되는 함수
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                //입력값 담기
+                message = binding.messageEdit.text.toString()
+
+                //값 유무에 따른 활성화 여부
+                binding.sendBtn.isVisible = message.isNotEmpty() //있다면 true 없으면 false
+
+                binding.messageEdit.requestFocus()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+        })
 
         // GetBoardInsideActivity에서 넘어온 데이터를 변수에 담기
         receiverEmail = intent.getStringExtra("email").toString()
@@ -116,50 +153,62 @@ class ChatActivity : AppCompatActivity() {
             binding.messageEdit.setText("")
             binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount)
             messageAdapter.notifyDataSetChanged()
-            
-            FcmPush.instance.sendMessage(receiverUid.toString(), mAuth?.currentUser?.email+"님이 메시지를 보냈습니다", "$message")
+
+            FcmPush.instance.sendMessage(
+                receiverUid.toString(),
+                mAuth?.currentUser?.email + "님이 메시지를 보냈습니다",
+                "$message"
+            )
         }
 
         getMessage()
 
     }
 
+    // 화면 클릭하여 키보드 숨기기 및 포커스 제거
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        val imm: InputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
 
+        return super.dispatchTouchEvent(event)
+    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_settings -> {
-                // 여기에 설정 아이템을 눌렀을 때의 동작을 추가하세요.
-                return true
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.action_settings -> {
+                    // 여기에 설정 아이템을 눌렀을 때의 동작을 추가하세요.
+                    return true
+                }
+
+                android.R.id.home -> {
+                    finish()
+                }
             }
-            android.R.id.home -> {
-                finish()
-            }
+            return true
         }
-        return true
-    }
 
-    //메시지 가져오기
-    private fun getMessage() {
-        mDbRef.child("chats").child(senderRoom).child("messages")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    messageList.clear()
+        //메시지 가져오기
+        private fun getMessage() {
+            mDbRef.child("chats").child(senderRoom).child("messages")
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        messageList.clear()
 
-                    for (postSnapshat in snapshot.children) {
+                        for (postSnapshat in snapshot.children) {
 
-                        val message = postSnapshat.getValue(Message::class.java)
-                        messageList.add(message!!)
+                            val message = postSnapshat.getValue(Message::class.java)
+                            messageList.add(message!!)
+                        }
+                        //적용
+                        messageAdapter.notifyDataSetChanged()
+                        binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
                     }
-                    //적용
-                    messageAdapter.notifyDataSetChanged()
-                    binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount-1)
-                }
 
-                override fun onCancelled(error: DatabaseError) {
+                    override fun onCancelled(error: DatabaseError) {
 
+                    }
                 }
-            }
-            )
+                )
+        }
     }
-}
