@@ -902,7 +902,14 @@ QnA에서 제목과 이메일의 위치를 서로 변경하고, 이메일의 4�
 #### 3. 채팅문제
 [스택 오버플로우 Android Toolbar moves up when keyboard appears](https://stackoverflow.com/questions/32649710/android-toolbar-moves-up-when-keyboard-appears)    
 [컴포즈 키보드 조작](https://velog.io/@mraz3068/Jetpack-Compose-Chat-Screen-Implementation )     
-
+![2024-05-31 13;34;31](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/6d10100b-b3a3-4650-806c-880718639c05)
 ```
+
 채팅할 때 키보드가 올라왔을 때 최상단의 앱 바가 사라지는 문제(The problem is Android Toolbar moves up when keyboard appears) 를 해결하였습니다.
+
+삽질 3시간...................
+
+rejustPan 으로 키보드가 올라왔을 때 전체 액티비티가 올라가고 상단바를 고정시켜야겠다고 생각했습니다.
+하지만 rejustResize 옵션을 주고 키보드가 올라왔을 때 레이아웃의 변경을 감지하는 리스너를 오버라이딩으로 호출한다음
+키보드의 높이 만큼 채팅 리사이클러뷰의 높이를 조절하게끔 하니까 잘 작동하는 것을 알 수 있었습니다.
 ```
