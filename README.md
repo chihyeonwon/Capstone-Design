@@ -922,3 +922,11 @@ rejustPan 으로 키보드가 올라왔을 때 전체 액티비티가 올라가�
 두마리의 토끼 -> 아무것도 입력 안되어 있을 때는 메시지 전송을 하지 못함
 애니메이션? 효과
 ```
+#### Optimize imports 코드 최적화
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/32cec53b-fb44-4112-9421-08fdc9fcdfb6)
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a6946b03-dbc8-493f-b0a7-1a6e46754c19)
+```
+프로젝트 왼쪽마우스 -optimize imports 기능을 사용하여 사용하지 않는 라이브러리를 import 하는 코드를 삭제해주었습니다.
+
+사용하지 않는 라이브러리를 코드에서 import한다면 그만큼 자원을 낭비하는 것(dummy code)이므로 이를 정리해주었습니다.
+```
