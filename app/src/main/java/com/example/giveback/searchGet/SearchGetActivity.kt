@@ -23,7 +23,7 @@ class SearchGetActivity : AppCompatActivity() {
 
     private lateinit var category: String
 
-    private lateinit var selectedDay: Calendar // 선택된 시작일을 담아줄 변수
+    private lateinit var selectedStartDay: Calendar // 선택된 시작일을 담아줄 변수
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -182,7 +182,7 @@ class SearchGetActivity : AppCompatActivity() {
             val selectedDateText = "${year}년 ${month + 1}월 ${dayOfMonth}일"
 
             // 선택한 날짜를 담아준다.
-            selectedDay = Calendar.getInstance().apply {
+            selectedStartDay = Calendar.getInstance().apply {
                 set(year, month, dayOfMonth)
             }
 
@@ -225,7 +225,7 @@ class SearchGetActivity : AppCompatActivity() {
                 initialMonth,
                 initialDay)
                 .apply {
-                    datePicker.minDate = selectedDay.timeInMillis
+                    datePicker.minDate = selectedStartDay.timeInMillis
                 }
 
             datePickerDialog.show()
