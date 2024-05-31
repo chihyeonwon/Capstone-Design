@@ -880,6 +880,26 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 
 ```
 ## 24.05.31 
+#### 시작일을 5월 15일로 했을 때
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a8d9a238-f100-4f6d-8062-ffa4ef1057e0)
+### 종료일은 5월 15일 이전은 선택하지 못함
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a5c8e251-cc02-4a4b-a933-cced2daef7f7)
+```
+datePicker.minDate 에 시작일로 선택한 값으로 설정한다. (시작일 값을 전역 변수로 생성해서 따로 저장)
+```
+#### 종료일을 5월 15일로 했을 때
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d1077da1-0a39-4be6-9c0b-609c2ed0d3ec)
+#### 시작일은 5월 15일 이후는 선택하지 못함
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d3346b8e-f49d-4275-99fb-302112859024)
+```
+datePicker.maxDate에 종료일로 선택한 값으로 설정한다. (종료일 값을 전역 변수로 생성해서 따로 저장)
+```
+#### QnA 페이지에서 제목을 주가 되게, 이메일은 4자리만 보여지고 뒤는 *로 숨김 표시
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/5a6f6ba5-02e9-4bfd-acbf-e5efea835407)
+```
+QnA에서 제목과 이메일의 위치를 서로 변경하고, 이메일의 4자리만 보여지게 하고 나머지는 *로 숨김 처리하였습니다.
+```
+
 #### 3. 채팅문제
 [스택 오버플로우 Android Toolbar moves up when keyboard appears](https://stackoverflow.com/questions/32649710/android-toolbar-moves-up-when-keyboard-appears)    
 [컴포즈 키보드 조작](https://velog.io/@mraz3068/Jetpack-Compose-Chat-Screen-Implementation )     
