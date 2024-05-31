@@ -93,8 +93,6 @@ class ChatActivity : AppCompatActivity() {
 
                 //값 유무에 따른 활성화 여부
                 binding.sendBtn.isVisible = message.isNotEmpty() //있다면 true 없으면 false
-
-                binding.messageEdit.requestFocus()
             }
 
             override fun afterTextChanged(p0: Editable?) {}
@@ -165,50 +163,43 @@ class ChatActivity : AppCompatActivity() {
 
     }
 
-    // 화면 클릭하여 키보드 숨기기 및 포커스 제거
-    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        val imm: InputMethodManager =
-            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
 
-        return super.dispatchTouchEvent(event)
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_settings -> {
+                // 여기에 설정 아이템을 눌렀을 때의 동작을 추가하세요.
+                return true
+            }
+
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return true
     }
 
-        override fun onOptionsItemSelected(item: MenuItem): Boolean {
-            when (item.itemId) {
-                R.id.action_settings -> {
-                    // 여기에 설정 아이템을 눌렀을 때의 동작을 추가하세요.
-                    return true
+    //메시지 가져오기
+    private fun getMessage() {
+        mDbRef.child("chats").child(senderRoom).child("messages")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    messageList.clear()
+
+                    for (postSnapshat in snapshot.children) {
+
+                        val message = postSnapshat.getValue(Message::class.java)
+                        messageList.add(message!!)
+                    }
+                    //적용
+                    messageAdapter.notifyDataSetChanged()
+                    binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
                 }
 
-                android.R.id.home -> {
-                    finish()
+                override fun onCancelled(error: DatabaseError) {
+
                 }
             }
-            return true
-        }
-
-        //메시지 가져오기
-        private fun getMessage() {
-            mDbRef.child("chats").child(senderRoom).child("messages")
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        messageList.clear()
-
-                        for (postSnapshat in snapshot.children) {
-
-                            val message = postSnapshat.getValue(Message::class.java)
-                            messageList.add(message!!)
-                        }
-                        //적용
-                        messageAdapter.notifyDataSetChanged()
-                        binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
-                    }
-
-                    override fun onCancelled(error: DatabaseError) {
-
-                    }
-                }
-                )
-        }
+            )
     }
+}
