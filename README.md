@@ -883,3 +883,12 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 #### 3. 채팅문제
 [스택 오버플로우 Android Toolbar moves up when keyboard appears](https://stackoverflow.com/questions/32649710/android-toolbar-moves-up-when-keyboard-appears)    
 [컴포즈 키보드 조작](https://velog.io/@mraz3068/Jetpack-Compose-Chat-Screen-Implementation )     
+
+#### 종료일 < 시작일 날짜 선택 범위 제한
+#### 시작일을 5월 15일로 했을 때
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a8d9a238-f100-4f6d-8062-ffa4ef1057e0)
+### 종료일은 5월 15일 이전은 선택하지 못함
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a5c8e251-cc02-4a4b-a933-cced2daef7f7)
+```
+datePicker.minDate 에 시작일로 선택한 값으로 설정한다. (시작일 값을 전역 변수로 생성해서 따로 저장)
+```
