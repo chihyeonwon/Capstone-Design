@@ -24,6 +24,7 @@ class SearchGetActivity : AppCompatActivity() {
     private lateinit var category: String
 
     private lateinit var selectedStartDay: Calendar // 선택된 시작일을 담아줄 변수
+    private lateinit var selectedEndDay: Calendar // 선택된 종료일을 담아줄 변수
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -184,6 +185,15 @@ class SearchGetActivity : AppCompatActivity() {
             // 선택한 날짜를 담아준다.
             selectedStartDay = Calendar.getInstance().apply {
                 set(year, month, dayOfMonth)
+            }
+
+            // 선택을 취소했을 때
+            if(selectedStartDay == null) {
+                // 이전에 선택한 날짜를 담아준다.
+                selectedStartDay = Calendar.getInstance().apply {
+                    set(year, month, dayOfMonth)
+                }
+                return@OnDateSetListener
             }
 
             // 버튼의 텍스트를 선택한 날짜로 변경
