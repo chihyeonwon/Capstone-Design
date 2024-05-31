@@ -41,6 +41,15 @@ class SearchGetActivity : AppCompatActivity() {
 
         calendar.set(year, month, day)
 
+        // 시작일을 오늘 날짜로 initialized.
+        selectedStartDay = Calendar.getInstance().apply {
+            set(year, month, day)
+        }
+        // 종료일을 오늘 날짜로 initialized.
+        selectedEndDay = Calendar.getInstance().apply {
+            set(year, month, day)
+        }
+
         val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
 
         // 기본 시작일과 종료일을 오늘 날짜로 지정
@@ -204,6 +213,21 @@ class SearchGetActivity : AppCompatActivity() {
             // 선택한 날짜를 원하는 형식으로 텍스트로 변환
             val selectedDateText = "${year}년 ${month + 1}월 ${dayOfMonth}일"
 
+            // 선택한 날짜를 담아준다.
+            selectedEndDay = Calendar.getInstance().apply {
+                set(year, month, dayOfMonth)
+            }
+
+            // 선택을 취소했을 때
+            if(selectedEndDay == null) {
+                // 이전에 선택한 날짜를 담아준다.
+                selectedEndDay = Calendar.getInstance().apply {
+                    set(year, month, dayOfMonth)
+                }
+                return@OnDateSetListener
+            }
+
+
             // 버튼의 텍스트를 선택한 날짜로 변경
             binding.getEndDate.text = selectedDateText
         }
@@ -216,7 +240,14 @@ class SearchGetActivity : AppCompatActivity() {
             val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             // DatePickerDialog 생성
-            val datePickerDialog = DatePickerDialog(this, datePickerListener1, initialYear, initialMonth, initialDay)
+            val datePickerDialog = DatePickerDialog(this,
+                datePickerListener1,
+                initialYear,
+                initialMonth,
+                initialDay).apply{
+                datePicker.maxDate = selectedEndDay.timeInMillis
+            }
+
             datePickerDialog.show()
         }
 
@@ -233,8 +264,7 @@ class SearchGetActivity : AppCompatActivity() {
                 datePickerListener2,
                 initialYear,
                 initialMonth,
-                initialDay)
-                .apply {
+                initialDay).apply {
                     datePicker.minDate = selectedStartDay.timeInMillis
                 }
 
