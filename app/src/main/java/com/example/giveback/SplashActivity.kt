@@ -1,11 +1,11 @@
 package com.example.giveback
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
 import com.example.giveback.auth.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 
 // 앱을 실행했을 때 3초간 실행되게 할 스플래쉬 페이지
 class SplashActivity : AppCompatActivity() {

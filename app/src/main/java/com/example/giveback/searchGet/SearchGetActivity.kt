@@ -3,19 +3,17 @@ package com.example.giveback.searchGet
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.R
 import com.example.giveback.databinding.ActivitySearchGetBinding
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.Calendar
-import java.util.Locale
 
 class SearchGetActivity : AppCompatActivity() {
 

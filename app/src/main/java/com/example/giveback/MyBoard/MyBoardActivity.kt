@@ -1,9 +1,10 @@
 package com.example.giveback.MyBoard
 
 import android.content.ContentValues
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.GetBoard.GetBoardInsideActivity
 import com.example.giveback.GetBoard.GetBoardListLVAdapter
@@ -16,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import android.content.Intent
 
 
 class MyBoardActivity : AppCompatActivity() {

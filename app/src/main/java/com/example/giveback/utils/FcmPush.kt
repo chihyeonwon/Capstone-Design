@@ -1,10 +1,7 @@
 package com.example.giveback.utils
 
-import com.example.giveback.Chatting.Message
 import com.example.giveback.PushDTO
 import com.google.common.net.MediaType
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.getValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import okhttp3.Call
@@ -12,11 +9,9 @@ import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import okio.IOException
-import org.json.JSONObject
 
 // 푸시를 전송해주는 클래스
 class FcmPush() {

@@ -1,12 +1,6 @@
 package com.example.giveback.Keyword
 
-import android.annotation.SuppressLint
 import android.app.Dialog
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -17,8 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.GetBoard.GetBoardModel
@@ -29,7 +21,9 @@ import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
 import com.example.giveback.utils.FcmPush
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

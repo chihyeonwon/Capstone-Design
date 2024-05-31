@@ -1,26 +1,24 @@
 package com.example.giveback.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.giveback.GetBoard.GetBoardEditActivity
-import com.example.giveback.R
-import com.example.giveback.databinding.FragmentGetBinding
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.example.giveback.GetBoard.GetBoardInsideActivity
 import com.example.giveback.GetBoard.GetBoardListLVAdapter
 import com.example.giveback.GetBoard.GetBoardModel
+import com.example.giveback.R
+import com.example.giveback.databinding.FragmentGetBinding
 import com.example.giveback.searchGet.SearchGetActivity
 import com.example.giveback.utils.FBRef
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
