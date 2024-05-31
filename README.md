@@ -892,3 +892,10 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 ```
 datePicker.minDate 에 시작일로 선택한 값으로 설정한다. (시작일 값을 전역 변수로 생성해서 따로 저장)
 ```
+#### 종료일을 5월 15일로 했을 때
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d1077da1-0a39-4be6-9c0b-609c2ed0d3ec)
+#### 시작일은 5월 15일 이후는 선택하지 못함
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d3346b8e-f49d-4275-99fb-302112859024)
+```
+datePicker.maxDate에 종료일로 선택한 값으로 설정한다. (종료일 값을 전역 변수로 생성해서 따로 저장)
+```
