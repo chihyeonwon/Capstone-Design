@@ -899,23 +899,10 @@ datePicker.maxDate에 종료일로 선택한 값으로 설정한다. (종료일 
 ```
 QnA에서 제목과 이메일의 위치를 서로 변경하고, 이메일의 4자리만 보여지게 하고 나머지는 *로 숨김 처리하였습니다.
 ```
-
 #### 3. 채팅문제
 [스택 오버플로우 Android Toolbar moves up when keyboard appears](https://stackoverflow.com/questions/32649710/android-toolbar-moves-up-when-keyboard-appears)    
 [컴포즈 키보드 조작](https://velog.io/@mraz3068/Jetpack-Compose-Chat-Screen-Implementation )     
 
-#### 종료일 < 시작일 날짜 선택 범위 제한
-#### 시작일을 5월 15일로 했을 때
-![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a8d9a238-f100-4f6d-8062-ffa4ef1057e0)
-### 종료일은 5월 15일 이전은 선택하지 못함
-![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a5c8e251-cc02-4a4b-a933-cced2daef7f7)
 ```
-datePicker.minDate 에 시작일로 선택한 값으로 설정한다. (시작일 값을 전역 변수로 생성해서 따로 저장)
-```
-#### 종료일을 5월 15일로 했을 때
-![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d1077da1-0a39-4be6-9c0b-609c2ed0d3ec)
-#### 시작일은 5월 15일 이후는 선택하지 못함
-![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d3346b8e-f49d-4275-99fb-302112859024)
-```
-datePicker.maxDate에 종료일로 선택한 값으로 설정한다. (종료일 값을 전역 변수로 생성해서 따로 저장)
+채팅할 때 키보드가 올라왔을 때 최상단의 앱 바가 사라지는 문제(The problem is Android Toolbar moves up when keyboard appears) 를 해결하였습니다.
 ```
