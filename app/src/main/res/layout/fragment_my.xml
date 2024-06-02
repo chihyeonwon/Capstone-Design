@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="15sp"
-                android:background="#CED4DA"
+                android:background="#E9ECEF"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints"
@@ -32,7 +32,7 @@
 
                 <TextView
                     android:id="@+id/email"
-                    android:layout_width="match_parent"
+                    android:layout_width="270dp"
                     android:layout_height="match_parent"
                     android:layout_margin="15sp"
                     android:background="@drawable/background_radius_black"
