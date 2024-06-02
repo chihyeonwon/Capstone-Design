@@ -1,25 +1,14 @@
 package com.example.giveback.Keyword
 
-import android.graphics.Color
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.view.isVisible
-import com.bumptech.glide.Glide
 import com.example.giveback.QnABoard.KeywordStatusModel
 import com.example.giveback.R
-import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 
 // 리스트뷰와 게시글 데이터를 연결해주는 게시물 리스트 어댑터
 class KeywordListLVAdapter(val boardList : MutableList<KeywordStatusModel>, val boardKeyList: MutableList<String>): BaseAdapter() {

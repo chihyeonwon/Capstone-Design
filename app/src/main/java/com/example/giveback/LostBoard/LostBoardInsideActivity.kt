@@ -2,13 +2,14 @@ package com.example.giveback.LostBoard
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
@@ -123,7 +124,7 @@ class LostBoardInsideActivity : AppCompatActivity() {
                             .into(imageViewFromFB)
                     }
                 } else {
-
+                    imageViewFromFB?.visibility = View.GONE
                 }
             })
 

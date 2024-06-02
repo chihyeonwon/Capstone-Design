@@ -2,17 +2,16 @@ package com.example.giveback.auth
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.MainActivity
 import com.example.giveback.R
 import com.example.giveback.databinding.ActivityJoinBinding
-import com.example.giveback.utils.FBAuth
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database

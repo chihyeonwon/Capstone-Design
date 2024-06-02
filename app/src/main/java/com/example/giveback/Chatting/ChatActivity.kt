@@ -1,37 +1,26 @@
 package com.example.giveback.Chatting
 
-import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.inputmethod.InputMethodManager
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.giveback.R
-import com.example.giveback.WebviewActivity
 import com.example.giveback.databinding.ActivityChatBinding
 import com.example.giveback.utils.FcmPush
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
+
 
 class ChatActivity : AppCompatActivity() {
 
@@ -49,6 +38,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageAdapter: MessageAdapter
     var messageList: ArrayList<Message> = ArrayList()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,6 +51,46 @@ class ChatActivity : AppCompatActivity() {
         binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
 
         binding.chatRecyclerView.adapter = messageAdapter
+
+        binding.chatRecyclerView.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
+            override fun onLayoutChange(
+                v: View?,
+                left: Int,
+                top: Int,
+                right: Int,
+                bottom: Int,
+                oldLeft: Int,
+                oldTop: Int,
+                oldRight: Int,
+                oldBottom: Int
+            ) {
+                binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
+            }
+
+        })
+
+        //메시지 담을 변수
+        var message: String = ""
+
+        //버튼 비활성화
+        binding.sendBtn.isVisible = false
+
+        //EditText 값 있을때만 버튼 활성화
+        binding.messageEdit.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            //값 변경 시 실행되는 함수
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                //입력값 담기
+                message = binding.messageEdit.text.toString()
+
+                //값 유무에 따른 활성화 여부
+                binding.sendBtn.isVisible = message.isNotEmpty() //있다면 true 없으면 false
+            }
+
+            override fun afterTextChanged(p0: Editable?) {}
+        })
 
         // GetBoardInsideActivity에서 넘어온 데이터를 변수에 담기
         receiverEmail = intent.getStringExtra("email").toString()
@@ -115,13 +145,19 @@ class ChatActivity : AppCompatActivity() {
             binding.messageEdit.setText("")
             binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount)
             messageAdapter.notifyDataSetChanged()
-            
-            FcmPush.instance.sendMessage(receiverUid.toString(), mAuth?.currentUser?.email+"님이 메시지를 보냈습니다", "$message")
+
+            FcmPush.instance.sendMessage(
+                receiverUid.toString(),
+                mAuth?.currentUser?.email + "님이 메시지를 보냈습니다",
+                "$message"
+            )
         }
 
         getMessage()
 
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -129,6 +165,7 @@ class ChatActivity : AppCompatActivity() {
                 // 여기에 설정 아이템을 눌렀을 때의 동작을 추가하세요.
                 return true
             }
+
             android.R.id.home -> {
                 finish()
             }
@@ -150,7 +187,7 @@ class ChatActivity : AppCompatActivity() {
                     }
                     //적용
                     messageAdapter.notifyDataSetChanged()
-                    binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount-1)
+                    binding.chatRecyclerView.scrollToPosition(messageAdapter.itemCount - 1)
                 }
 
                 override fun onCancelled(error: DatabaseError) {

@@ -1,29 +1,25 @@
 package com.example.giveback.fragments
 
-import android.app.ActionBar
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.giveback.GetBoard.GetBoardModel
 import com.example.giveback.QnABoard.QnaBoardInsideActivity
+import com.example.giveback.QnABoard.QnaBoardListLVAdapter
+import com.example.giveback.QnABoard.QnaBoardModel
+import com.example.giveback.QnABoard.QnaBoardWriteActivity
 import com.example.giveback.R
 import com.example.giveback.databinding.FragmentQnaBinding
 import com.example.giveback.utils.FBRef
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.example.giveback.QnABoard.QnaBoardListLVAdapter
-import com.example.giveback.QnABoard.QnaBoardModel
-import com.example.giveback.QnABoard.QnaBoardWriteActivity
-import com.google.firebase.database.ChildEventListener
 
 // QnA 페이지
 class QnAFragment : Fragment() {

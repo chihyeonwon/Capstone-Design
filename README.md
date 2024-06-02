@@ -861,3 +861,74 @@ import android.R을 삭제하니까 로컬 drawable 파일에 있는 notificatio
 ## 24.05.22
 #### 채팅 UI 수정
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a1c594a4-988f-45f9-b7ec-315a97130b26)
+
+## 24.05.30 스크럼 회의
+
+```
+다음 주까지 UI 디자인 통합
+
+1. 검색 페이지에서 기본 시작일, 종료일 = 오늘날짜, 시작일>종료일, 종료일<시작일 minDate,maxDate
+날짜 범위 제한
+
+2. QnA 페이지에서 제목을 주가 되게, 이메일은 4자리만 보여지고 뒤는 *로 숨김 표시
+
+3. 채팅에서 채팅창 입력할 때 입력 밖을 터치하면 키보드 내려가는 기능
+키보드가 올라올 때 상단바는 고정하는 기능
+
+4. 고쳐지지 않은 폰트 레이아웃 수정
+
+
+```
+## 24.05.31 
+#### 시작일을 5월 15일로 했을 때
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a8d9a238-f100-4f6d-8062-ffa4ef1057e0)
+### 종료일은 5월 15일 이전은 선택하지 못함
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a5c8e251-cc02-4a4b-a933-cced2daef7f7)
+```
+datePicker.minDate 에 시작일로 선택한 값으로 설정한다. (시작일 값을 전역 변수로 생성해서 따로 저장)
+```
+#### 종료일을 5월 15일로 했을 때
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d1077da1-0a39-4be6-9c0b-609c2ed0d3ec)
+#### 시작일은 5월 15일 이후는 선택하지 못함
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d3346b8e-f49d-4275-99fb-302112859024)
+```
+datePicker.maxDate에 종료일로 선택한 값으로 설정한다. (종료일 값을 전역 변수로 생성해서 따로 저장)
+```
+#### QnA 페이지에서 제목을 주가 되게, 이메일은 4자리만 보여지고 뒤는 *로 숨김 표시
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/5a6f6ba5-02e9-4bfd-acbf-e5efea835407)
+```
+QnA에서 제목과 이메일의 위치를 서로 변경하고, 이메일의 4자리만 보여지게 하고 나머지는 *로 숨김 처리하였습니다.
+```
+#### 3. 채팅문제
+[스택 오버플로우 Android Toolbar moves up when keyboard appears](https://stackoverflow.com/questions/32649710/android-toolbar-moves-up-when-keyboard-appears)    
+[컴포즈 키보드 조작](https://velog.io/@mraz3068/Jetpack-Compose-Chat-Screen-Implementation )     
+![2024-05-31 13;34;31](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/6d10100b-b3a3-4650-806c-880718639c05)
+```
+
+채팅할 때 키보드가 올라왔을 때 최상단의 앱 바가 사라지는 문제(The problem is Android Toolbar moves up when keyboard appears) 를 해결하였습니다.
+
+삽질 3시간...................
+
+rejustPan 으로 키보드가 올라왔을 때 전체 액티비티가 올라가고 상단바를 고정시켜야겠다고 생각했습니다.
+하지만 rejustResize 옵션을 주고 키보드가 올라왔을 때 레이아웃의 변경을 감지하는 리스너를 오버라이딩으로 호출한다음
+키보드의 높이 만큼 채팅 리사이클러뷰의 높이를 조절하게끔 하니까 잘 작동하는 것을 알 수 있었습니다.
+```
+## 24.06.01
+#### 키보드 입력 버튼 수정
+![2024-06-01 02;05;13](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d8a81790-dd8e-4682-a138-63e69c459865)
+```
+입력 창에 메시지가 입력되어 있을 때 버튼이 보여지도록 수정했습니다.
+
+두마리의 토끼 -> 아무것도 입력 안되어 있을 때는 메시지 전송을 하지 못함
+애니메이션? 효과
+```
+#### Optimize imports 코드 최적화
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/32cec53b-fb44-4112-9421-08fdc9fcdfb6)
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/a6946b03-dbc8-493f-b0a7-1a6e46754c19)
+```
+프로젝트 왼쪽마우스 -optimize imports 기능을 사용하여 사용하지 않는 라이브러리를 import 하는 코드를 삭제해주었습니다.
+
+사용하지 않는 라이브러리를 코드에서 import한다면 그만큼 자원을 낭비하는 것(dummy code)이므로 이를 정리해주었습니다.
+
+단축키로는 ctrl + alt + o 니까 개발할 때 자주 사용해봐야겠습니다.
+```

@@ -1,8 +1,8 @@
 package com.example.giveback.QnABoard
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.R
 import com.example.giveback.databinding.ActivityQnaBoardWriteBinding

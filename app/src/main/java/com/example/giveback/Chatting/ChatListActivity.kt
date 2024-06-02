@@ -1,17 +1,12 @@
 package com.example.giveback.Chatting
 
-import android.content.ContentValues
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.giveback.GetBoard.GetBoardListLVAdapter
-import com.example.giveback.GetBoard.GetBoardModel
 import com.example.giveback.R
 import com.example.giveback.auth.User
 import com.example.giveback.databinding.ActivityChatListBinding
-import com.example.giveback.utils.FBRef
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

@@ -2,7 +2,6 @@ package com.example.giveback.QnABoard
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,22 +9,19 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
 import com.example.giveback.R
 import com.example.giveback.comment.CommentLVAdpater
 import com.example.giveback.comment.CommentModel
 import com.example.giveback.databinding.ActivityQnaBoardInsideBinding
 import com.example.giveback.utils.FBAuth
 import com.example.giveback.utils.FBRef
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 
 // 게시글 보기 페이지
 class QnaBoardInsideActivity : AppCompatActivity() {

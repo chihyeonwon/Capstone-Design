@@ -2,43 +2,25 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <RelativeLayout
+        android:onClick="hideKeyboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="Chatting.ChatActivity">
+        tools:context="Chatting.ChatActivity"
+        android:fitsSystemWindows="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_alignParentTop="true"
+            android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                tools:ignore="MissingConstraints">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/my_toolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:background="#152134"
-                        android:elevation="4dp"
-                        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                        tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteX="-39dp" />
-
-                </LinearLayout>
-            </ScrollView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-        <!-- 대화 내용 -->
+            android:layout_height="?attr/actionBarSize"
+            android:background="#152134"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-39dp" />
 
         <!-- 입력 레이아웃 -->
         <androidx.recyclerview.widget.RecyclerView
