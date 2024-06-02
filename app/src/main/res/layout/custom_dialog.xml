@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E9ECEF"
     android:gravity="center">
 
     <Button
@@ -11,9 +12,9 @@
         android:id="@+id/editBtn"
         android:text="수정"
         android:textSize="25sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_margin="20dp"
-        android:background="@drawable/background_radius_gray"
+        android:background="@drawable/background_radius_black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -22,10 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@drawable/background_radius_gray"
+        android:background="@drawable/background_radius_black"
         android:fontFamily="@font/boardtext"
         android:text="삭제"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="25sp" />
 
 </LinearLayout>
