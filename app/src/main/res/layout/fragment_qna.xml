@@ -9,13 +9,13 @@
         tools:context=".fragments.QnAFragment">
 
         <LinearLayout
-            android:background="#0900FF"
+            android:background="#E9ECEF"
             android:layout_width="match_parent"
             android:layout_height="9dp">
         </LinearLayout>
 
         <LinearLayout
-            android:background="#1111"
+            android:background="@drawable/background_radius_black"
             android:layout_width="match_parent"
             android:layout_height="70dp">
 
@@ -27,7 +27,7 @@
                 android:layout_marginLeft="80dp"
                 android:layout_marginRight="110dp"
                 android:text="제목"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18dp" />
 
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="70dp"
                 android:text="이메일"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18dp" />
 
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상태"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18dp" />
 
         </LinearLayout>
@@ -57,10 +57,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="120dp"
-            android:background="@color/white">
+            android:background="#E9ECEF">
 
             <ListView
                 android:layout_marginBottom="180dp"
+                android:background="@color/white"
                 android:id="@+id/boardListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
