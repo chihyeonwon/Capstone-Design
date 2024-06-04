@@ -40,15 +40,13 @@ class GetBoardInsideActivity : AppCompatActivity() {
     private lateinit var writerUid: String
 
     // 이미지 최대 개수
-    var count = 5
-
+    var count = 3
 
     //View Pager객체 선언
     internal lateinit var viewPager: ViewPager2
 
     private val boardKeyList = mutableListOf<String>()
 
-    private var imageList = mutableListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,11 +65,17 @@ class GetBoardInsideActivity : AppCompatActivity() {
         //View Pager레이아웃을 찾아서 연결
         viewPager= findViewById(R.id.view_pager) as ViewPager2
 
+        for(i in 0 until 3) {
+            boardKeyList.add("${key}${i}")
+        }
+
         //adapter으로 연결
-        val adapter= GetViewPagerAdapter(boardKeyList, key, count)
+        val adapter= GetViewPagerAdapter(this, boardKeyList, key)
         viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
 
-        viewPager.adapter=adapter
+        viewPager.adapter = adapter
+
+        viewPager.offscreenPageLimit = 3 // 몇 개의 페이지를 미리 로드 해둘것인지
 
         binding.manageNumber.text = "관리번호 : ${key}"
 
