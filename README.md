@@ -155,7 +155,7 @@
   <a href="https://github.com/doncici77">
     <img src="markdown/ljh.jpg" width="100px;" alt=""/>
     박광호<br>
-    Back End
+    QA, Back End
   </a>
   <tr>
     <td align="center">
