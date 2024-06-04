@@ -948,3 +948,7 @@ viewPager를 적용하고 indicator 까지 연결하였습니다.
 오류 비동기로 서버에서 이미지를 받아오도록 처리하였는 데 동일한 이미지를 불러오는 것으로 보아 delay를 주던지 suspend로 일시정지하던지
 해야 할 것 같습니다.
 ```
+![2024-06-05 03;14;01](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/d935181f-0a59-4db5-ad43-c46b819b7a27)
+```
+...
+```
