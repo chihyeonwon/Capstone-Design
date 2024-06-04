@@ -939,3 +939,12 @@ rejustPan 으로 키보드가 올라왔을 때 전체 액티비티가 올라가�
 문제해결 - 이미지가 없을 때 액티비티의 공간을 차지하는 문제를 visibility gone 속성을 카드뷰와 이미지뷰에 줘서 해결하려고 했으나 오류발생, 페이저뷰 어댑터 안에 이미지뷰를 child 요소로 넘겨주면 구현가능할 것으로 예상
 ```
 [viewPager2 위젯](https://todaycode.tistory.com/27)
+
+## 24.06.05
+![2024-06-05 03;09;22](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/3e0384a3-054d-4799-80b6-b2f87fa304ab)
+```
+viewPager를 적용하고 indicator 까지 연결하였습니다.
+
+오류 비동기로 서버에서 이미지를 받아오도록 처리하였는 데 동일한 이미지를 불러오는 것으로 보아 delay를 주던지 suspend로 일시정지하던지
+해야 할 것 같습니다.
+```
