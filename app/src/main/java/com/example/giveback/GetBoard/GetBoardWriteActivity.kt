@@ -51,7 +51,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
 
     private lateinit var count: Number
 
-    private val maxNumber = 4
+    private val maxNumber = 3
 
     lateinit var galleryAdapter: GalleryAdapter
 
@@ -412,15 +412,6 @@ class GetBoardWriteActivity : AppCompatActivity() {
         // 갤러리에서 사진 선택 버튼 클릭 시
         val galleryButton = dialog.findViewById<Button>(R.id.galleryButton)
         galleryButton.setOnClickListener {
-
-            if (imageList.count() > maxNumber) {
-                Toast.makeText(
-                    this,
-                    "이미지는 최대 ${maxNumber}장까지 첨부할 수 있습니다.",
-                    Toast.LENGTH_SHORT
-                ).show();
-                return@setOnClickListener
-            }
 
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
 

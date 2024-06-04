@@ -51,7 +51,7 @@ class LostBoardWriteActivity : AppCompatActivity() {
 
     private lateinit var count: Number
 
-    private val maxNumber = 5
+    private val maxNumber = 3
 
     lateinit var galleryAdapter: GalleryAdapter
 
@@ -385,15 +385,6 @@ class LostBoardWriteActivity : AppCompatActivity() {
         val galleryButton = dialog.findViewById<Button>(R.id.galleryButton)
         galleryButton.setOnClickListener {
 
-            if (imageList.count() == maxNumber) {
-                Toast.makeText(
-                    this,
-                    "이미지는 최대 ${maxNumber}장까지 첨부할 수 있습니다.",
-                    Toast.LENGTH_SHORT
-                ).show();
-                return@setOnClickListener
-            }
-
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
 
             // 사진 멀티 선택 가능
@@ -423,13 +414,19 @@ class LostBoardWriteActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == RESULT_OK && requestCode == 100) {
 
-            //멀티 선택은 clipData
-            if(data!!.clipData != null){ //멀티 이미지
+            //선택한 이미지 갯수
+            count = data!!.clipData!!.itemCount
+            val clipDataSize = data!!.clipData!!.itemCount
+            val selectableCount = maxNumber - imageList.count()
 
-                //선택한 이미지 갯수
-                count = data!!.clipData!!.itemCount
-
-                for(index in 0 until count as Int){
+            if (clipDataSize > selectableCount) { // 최대 선택 가능한 개수를 초과해서 선택한 경우
+                Toast.makeText(
+                    this,
+                    "이미지는 최대 ${selectableCount}장까지 첨부할 수 있습니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                for (index in 0 until count as Int) {
                     //이미지 담기
                     val imageUri = data!!.clipData!!.getItemAt(index).uri
                     //이미지 추가
@@ -437,10 +434,6 @@ class LostBoardWriteActivity : AppCompatActivity() {
                 }
 
                 Log.d(TAG, "현재 선택한 사진 수 : ${count.toString()}")
-
-            }else{ //싱글 이미지
-                val imageUri = data!!.data
-                imageList.add(imageUri!!)
             }
             galleryAdapter.notifyDataSetChanged()
 
