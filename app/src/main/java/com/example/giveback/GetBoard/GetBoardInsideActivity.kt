@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.giveback.Chatting.ChatActivity
 import com.example.giveback.R
@@ -40,6 +42,14 @@ class GetBoardInsideActivity : AppCompatActivity() {
     // 이미지 최대 개수
     var count = 5
 
+
+    //View Pager객체 선언
+    internal lateinit var viewPager: ViewPager2
+
+    private val boardKeyList = mutableListOf<String>()
+
+    private var imageList = mutableListOf<Int>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,6 +63,15 @@ class GetBoardInsideActivity : AppCompatActivity() {
 
         key = intent.getStringExtra("key").toString()
         getBoardData(key)
+
+        //View Pager레이아웃을 찾아서 연결
+        viewPager= findViewById(R.id.view_pager) as ViewPager2
+
+        //adapter으로 연결
+        val adapter= GetViewPagerAdapter(boardKeyList, key, count)
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
+
+        viewPager.adapter=adapter
 
         binding.manageNumber.text = "관리번호 : ${key}"
 
