@@ -75,7 +75,9 @@ class GetBoardInsideActivity : AppCompatActivity() {
 
         viewPager.adapter = adapter
 
-        viewPager.offscreenPageLimit = 3 // 몇 개의 페이지를 미리 로드 해둘것인지
+        viewPager.offscreenPageLimit = 5 // 몇 개의 페이지를 미리 로드 해둘것인지
+
+        binding.springDotsIndicator.setViewPager2(viewPager) // indicator 설정
 
         binding.manageNumber.text = "관리번호 : ${key}"
 
