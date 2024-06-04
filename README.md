@@ -952,3 +952,10 @@ viewPager를 적용하고 indicator 까지 연결하였습니다.
 ```
 ...
 ```
+#### 페이지뷰2 이미지 오류 수정
+![2024-06-05 03;38;45](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/3f308cb4-2a6a-4f8f-93c7-3c2b2b7b379a)
+```
+이미지 경로를 key+i로 받던것을 key+position으로 수정하였습니다. (for문에서 position값을 이용하도록 수정)
+
+정상적으로 페이지뷰가 작동하는 것을 확인하였습니다.
+```
