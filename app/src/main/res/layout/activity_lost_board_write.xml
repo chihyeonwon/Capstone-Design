@@ -239,21 +239,6 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp">
                 </LinearLayout>
-
-                <Button
-                    android:fontFamily="@font/boardtext"
-                    android:layout_marginBottom="50dp"
-                    android:id="@+id/writeBtn"
-                    android:text="입력"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_yellow"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
