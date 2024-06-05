@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.giveback.Chatting.ChatActivity
 import com.example.giveback.R
@@ -40,6 +41,11 @@ class LostBoardInsideActivity : AppCompatActivity() {
     // 이미지 최대 개수
     var count = 5
 
+    //View Pager객체 선언
+    internal lateinit var viewPager: ViewPager2
+
+    private val boardKeyList = mutableListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -50,9 +56,25 @@ class LostBoardInsideActivity : AppCompatActivity() {
             showDialog()
         }
 
-
         key = intent.getStringExtra("key").toString()
         getBoardData(key)
+
+        //View Pager레이아웃을 찾아서 연결
+        viewPager= findViewById(R.id.view_pager) as ViewPager2
+
+        for(i in 0 until 3) {
+            boardKeyList.add("${key}${i}")
+        }
+
+        //adapter으로 연결
+        val adapter= LostViewPagerAdapter(this, boardKeyList, key)
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
+
+        viewPager.adapter = adapter
+
+        viewPager.offscreenPageLimit = 5 // 몇 개의 페이지를 미리 로드 해둘것인지
+
+        binding.springDotsIndicator.setViewPager2(viewPager) // indicator 설정
 
         binding.manageNumber.text = "관리번호 : ${key}"
 
