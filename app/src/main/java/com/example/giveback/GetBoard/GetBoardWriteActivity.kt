@@ -17,6 +17,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -69,7 +70,6 @@ class GetBoardWriteActivity : AppCompatActivity() {
         //recyclerView 설정
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         binding.recyclerView.adapter = galleryAdapter
-
 
         // 카테고리를 선택해주세요 버튼을 눌렀을 때 카테고리 설정 창으로 이동한다.
         binding.getCategoryArea.setOnClickListener {
@@ -278,8 +278,13 @@ class GetBoardWriteActivity : AppCompatActivity() {
 
         dialog = Dialog(this)
 
+        // X 이미지를 눌렀을 때 전화면 이동
+        binding.cancel.setOnClickListener{
+            finish()
+        }
+
         // 게시글 작성 버튼을 눌렀을 때 파이어베이스에 게시글과 이미지를 넣는다.
-        binding.writeBtn.setOnClickListener {
+        binding.GetWriteBtn.setOnClickListener {
 
             // uid를 가져온다.
             val uid = FBAuth.getUid()
@@ -300,7 +305,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
 
             // 습득명은 필수로 입력되어야 한다.
             if (title.isEmpty()) {
-                Toast.makeText(this, "습득명을 선택해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "습득물명을 선택해주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

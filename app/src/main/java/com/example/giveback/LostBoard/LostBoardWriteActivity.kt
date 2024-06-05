@@ -71,6 +71,11 @@ class LostBoardWriteActivity : AppCompatActivity() {
         binding.recyclerView.adapter = galleryAdapter
 
 
+        // X 이미지를 눌렀을 때 전화면 이동
+        binding.cancel.setOnClickListener{
+            finish()
+        }
+
         // 카테고리를 선택해주세요 버튼을 눌렀을 때 카테고리 설정 창으로 이동한다.
         binding.lostCategoryArea.setOnClickListener {
             val mDialogView = LayoutInflater.from(this).inflate(R.layout.category_item, null)
@@ -255,7 +260,7 @@ class LostBoardWriteActivity : AppCompatActivity() {
         dialog = Dialog(this)
 
         // 게시글 작성 버튼을 눌렀을 때 파이어베이스에 게시글과 이미지를 넣는다.
-        binding.writeBtn.setOnClickListener {
+        binding.LostWriteBtn.setOnClickListener {
 
             // uid를 가져온다.
             val uid = FBAuth.getUid()
