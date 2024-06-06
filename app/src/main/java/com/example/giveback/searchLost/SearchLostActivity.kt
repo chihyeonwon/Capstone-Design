@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.giveback.R
 import com.example.giveback.databinding.ActivitySearchLostBinding
+import java.text.SimpleDateFormat
 import java.util.Calendar
 
 class SearchLostActivity : AppCompatActivity() {
@@ -17,10 +18,36 @@ class SearchLostActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySearchLostBinding
 
     private lateinit var category: String
+
+    private lateinit var selectedStartDay: Calendar // 선택된 시작일을 담아줄 변수
+    private lateinit var selectedEndDay: Calendar // 선택된 종료일을 담아줄 변수
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_search_lost)
+
+        // 기본 날짜를 오늘 날짜로 지정
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        calendar.set(year, month, day)
+
+        // 시작일을 오늘 날짜로 initialized.
+        selectedStartDay = Calendar.getInstance().apply {
+            set(year, month, day)
+        }
+        // 종료일을 오늘 날짜로 initialized.
+        selectedEndDay = Calendar.getInstance().apply {
+            set(year, month, day)
+        }
+
+        val dateFormat = SimpleDateFormat("yyyy년 MM월 dd일")
+
+        // 기본 시작일과 종료일을 오늘 날짜로 지정
+        binding.lostStartDate.text = dateFormat.format(calendar.time).toString()
+        binding.lostEndDate.text = dateFormat.format(calendar.time).toString()
 
         // 카테고리를 선택해주세요 버튼을 눌렀을 때 카테고리 설정 창으로 이동한다.
         binding.getCategoryArea.setOnClickListener {
@@ -157,6 +184,20 @@ class SearchLostActivity : AppCompatActivity() {
             // 선택한 날짜를 원하는 형식으로 텍스트로 변환
             val selectedDateText = "${year}년 ${month + 1}월 ${dayOfMonth}일"
 
+            // 선택한 날짜를 담아준다.
+            selectedStartDay = Calendar.getInstance().apply {
+                set(year, month, dayOfMonth)
+            }
+
+            // 선택을 취소했을 때
+            if(selectedStartDay == null) {
+                // 이전에 선택한 날짜를 담아준다.
+                selectedStartDay = Calendar.getInstance().apply {
+                    set(year, month, dayOfMonth)
+                }
+                return@OnDateSetListener
+            }
+
             // 버튼의 텍스트를 선택한 날짜로 변경
             binding.lostStartDate.text = selectedDateText
         }
@@ -164,6 +205,20 @@ class SearchLostActivity : AppCompatActivity() {
         val datePickerListener2 = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             // 선택한 날짜를 원하는 형식으로 텍스트로 변환
             val selectedDateText = "${year}년 ${month + 1}월 ${dayOfMonth}일"
+
+            // 선택한 날짜를 담아준다.
+            selectedEndDay = Calendar.getInstance().apply {
+                set(year, month, dayOfMonth)
+            }
+
+            // 선택을 취소했을 때
+            if(selectedEndDay == null) {
+                // 이전에 선택한 날짜를 담아준다.
+                selectedEndDay = Calendar.getInstance().apply {
+                    set(year, month, dayOfMonth)
+                }
+                return@OnDateSetListener
+            }
 
             // 버튼의 텍스트를 선택한 날짜로 변경
             binding.lostEndDate.text = selectedDateText
@@ -177,7 +232,13 @@ class SearchLostActivity : AppCompatActivity() {
             val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             // DatePickerDialog 생성
-            val datePickerDialog = DatePickerDialog(this, datePickerListener1, initialYear, initialMonth, initialDay)
+            val datePickerDialog = DatePickerDialog(this,
+                datePickerListener1,
+                initialYear,
+                initialMonth,
+                initialDay).apply{
+                datePicker.maxDate = selectedEndDay.timeInMillis
+            }
             datePickerDialog.show()
         }
 
@@ -189,7 +250,14 @@ class SearchLostActivity : AppCompatActivity() {
             val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             // DatePickerDialog 생성
-            val datePickerDialog = DatePickerDialog(this, datePickerListener2, initialYear, initialMonth, initialDay)
+            val datePickerDialog = DatePickerDialog(
+                this,
+                datePickerListener2,
+                initialYear,
+                initialMonth,
+                initialDay).apply {
+                datePicker.minDate = selectedStartDay.timeInMillis
+            }
             datePickerDialog.show()
         }
 
