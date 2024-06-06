@@ -1,0 +1,34 @@
+※ UI 수정 작업일지 
+
+▶ 깃허브 주소: https://github.com/HwanHee927/Capsotne_UI
+
+res/drawable/
+
+추가: 
+
++ rounded_button.xml
++ rounded_button_2.xml
++ rounded_button_3.xml
++ rounded_button_4.xml
+
++ rectangle_button.xml
++ rectangle_button_2.xml
++ rectangle_button_3.xml
+
++ back_2.png
++ btnwrite_2.png 
+
+삭제:
+
+- search.jpeg(확장자 형식은 달라도 파일명은 같아, 참조 시 오류가 발생하여 삭제)
+
+---------------------------------------------------------------------------------------------
+
+res/layout/
+
++ ALL UPDATE
+
+---------------------------------------------------------------------------------------------
+
+PS. UI 수정 작업 간 변경된 파일의 목록입니다. 혹여나 누락된 목록이 있을 시 말씀주시면 다시 정리해드리겠습니다!
+
