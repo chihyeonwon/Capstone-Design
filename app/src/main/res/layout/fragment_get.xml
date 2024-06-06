@@ -13,7 +13,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E9ECEF"
+            android:background="#FFFFFF"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -22,7 +22,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/apptitle"
                 android:gravity="center"
-                android:text="물건 찾아가세요"
+                android:text="물건 찾아가세요!"
                 android:textColor="@color/black"
                 android:textSize="17dp">
 

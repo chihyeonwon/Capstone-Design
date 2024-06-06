@@ -17,11 +17,13 @@
             tools:layout_editor_absoluteY="215dp" />
 
         <Button
+
             android:id="@+id/clearAllBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:background="@drawable/background_radius_yellow"
+            android:background="@drawable/rounded_button"
+            android:textColor="#ff4242"
             android:text="초기화"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -33,7 +35,7 @@
             android:layout_margin="30dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/btnwrite"
+            android:src="@drawable/btnwrite_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="MissingConstraints"></ImageView>

@@ -35,10 +35,10 @@
                     android:layout_width="270dp"
                     android:layout_height="match_parent"
                     android:layout_margin="15sp"
-                    android:background="@drawable/background_radius_black"
+                    android:background="@drawable/rectangle_button"
                     android:fontFamily="@font/boardtext"
                     android:gravity="center_vertical|center_horizontal"
-                    android:text="email"
+                    android:text="E-mail"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     tools:ignore="MissingConstraints"></TextView>
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:background="@drawable/background_radius_black"
+                    android:background="@drawable/rounded_button_2"
                     android:fontFamily="@font/boardtext"
                     android:padding="15dp"
                     android:text="게시물"
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:background="@drawable/background_radius_black"
+                    android:background="@drawable/rounded_button_3"
                     android:fontFamily="@font/boardtext"
                     android:padding="15dp"
                     android:text="채팅"
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
-                        android:background="@drawable/background_radius_black"
+                        android:background="@drawable/rounded_button_4"
                         android:fontFamily="@font/boardtext"
                         android:padding="15dp"
                         android:text="키워드"
@@ -116,7 +116,7 @@
 
 
 
-        </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:gravity="center"
@@ -132,7 +132,7 @@
                     android:id="@+id/logoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_black"
+                    android:background="@drawable/rectangle_button_2"
                     android:padding="15sp"
                     android:text="로그아웃"
                     android:textColor="@color/white"
@@ -149,7 +149,7 @@
                     android:id="@+id/signoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_red"
+                    android:background="@drawable/rectangle_button_3"
                     android:padding="15sp"
                     android:text="회원탈퇴"
                     android:textColor="@color/white"

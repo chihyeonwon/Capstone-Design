@@ -15,7 +15,7 @@
             android:background="@color/mainColor"
             android:text="분실물 상세 검색"
             android:textSize="40dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="90dp"
@@ -120,9 +120,10 @@
                     android:layout_margin="50dp"
                     android:layout_gravity="center"
                     android:text="검색하기"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="25dp"
-                    android:background="@drawable/background_radius_yellow"
+                    android:background="@drawable/rounded_button"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content">
                 </Button>
