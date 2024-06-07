@@ -37,8 +37,8 @@ class JoinActivity : AppCompatActivity() {
         // 유저데이터베이스 초기화
         mDbRef = Firebase.database.reference
 
-        // 회원가입 버튼 초기 상태는 비활성화
-        binding.joinBtn.isEnabled = false
+        // 로그인하러가기 버튼 초기 상태는 비활성화
+        binding.gotoLoginBtn.isEnabled = false
 
         // 모든 필드 입력 되면 가입하기 버튼 활성화
         // 1. 이메일 필드
@@ -124,27 +124,21 @@ class JoinActivity : AppCompatActivity() {
             createUserAndSendEmailVerification(email, password1)
         }
 
-        binding.joinBtn.setOnClickListener {
+        binding.gotoLoginBtn.setOnClickListener {
             // 회원가입 버튼 클릭 시의 액션은 이메일 인증 확인 후에 활성화되어야 함
-
             // 이메일 인증 확인
             val user = auth.currentUser
-            if (user != null && user.isEmailVerified) {
-                // 이메일 인증이 완료된 경우
-                val intent = Intent(this, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-            } else {
-                // 이메일 인증이 완료되지 않은 경우
-                Toast.makeText(this, "이메일 인증을 완료해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+
+            user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
+                if (verificationTask.isSuccessful) {
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "이메일 인증을 완료해주세요.", Toast.LENGTH_SHORT).show()
+                }
             }
-
-
-        Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
     }
 }
 
@@ -166,7 +160,7 @@ private fun createUserAndSendEmailVerification(email: String, password: String) 
                 if (verificationTask.isSuccessful) {
                     Toast.makeText(this, "인증 이메일이 발송되었습니다. 이메일을 확인해주세요.", Toast.LENGTH_SHORT).show()
                     // 이메일 인증 후에 회원가입 버튼 활성화
-                    binding.joinBtn.isEnabled = true
+                    binding.gotoLoginBtn.isEnabled = true
                 } else {
                     Toast.makeText(this, "이메일 발송에 실패했습니다.", Toast.LENGTH_SHORT).show()
                 }

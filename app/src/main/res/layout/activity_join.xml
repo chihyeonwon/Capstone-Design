@@ -121,7 +121,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
-                android:id="@+id/joinBtn"
+                android:id="@+id/gotoLoginBtn"
                 android:text="로그인하러 가기"
                 android:enabled="false"
                 android:layout_marginTop="10dp"
