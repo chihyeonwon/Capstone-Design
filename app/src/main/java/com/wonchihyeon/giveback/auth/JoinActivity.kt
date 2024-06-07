@@ -55,7 +55,7 @@ class JoinActivity : AppCompatActivity() {
                 } else if (!email_ok) {
                     // 지정된 도메인 확인
                     binding.emailokText.setTextColor(Color.RED)
-                    binding.emailokText.text = "gwnu.ac.kr 혹은 gwnu.myplug.kr 도메인으로 입력하세요."
+                    binding.emailokText.text = "아이디@gwnu.ac.kr 일 경우 아이디@gwnu.myplug.kr 도메인을 수정하고 입력하세요."
                 } else {
                     binding.emailokText.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
                     binding.emailokText.text = "유효한 아이디"
@@ -110,8 +110,8 @@ class JoinActivity : AppCompatActivity() {
 
         binding.joinBtn.setOnClickListener {
             // 회원가입 버튼 클릭 시의 액션은 이메일 인증 확인 후에 활성화되어야 함
-            // 여기서는 예제 코드로 바로 메인 액티비티로 이동하도록 설정
-            val intent = Intent(this, MainActivity::class.java)
+            Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
