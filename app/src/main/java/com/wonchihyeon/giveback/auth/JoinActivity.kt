@@ -139,41 +139,42 @@ class JoinActivity : AppCompatActivity() {
                     Toast.makeText(this, "이메일 인증을 완료해주세요.", Toast.LENGTH_SHORT).show()
                 }
             }
-    }
-}
-
-// 이메일 인증 버튼 활성화 상태 변경 메소드
-fun changeSignUpButtonActivation(): Unit {
-    binding.verifyEmailBtn.isEnabled = email_ok == true && pw_ok == true
-}
-
-// 비밀번호 == 비밀번호 확인이면 true, 아니면 false
-fun checkPassword(): Boolean {
-    return binding.passwordArea1.text.toString() == binding.passwordArea2.text.toString()
-}
-
-private fun createUserAndSendEmailVerification(email: String, password: String) {
-    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-        if (task.isSuccessful) {
-            val user = auth.currentUser
-            user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
-                if (verificationTask.isSuccessful) {
-                    Toast.makeText(this, "인증 이메일이 발송되었습니다. 이메일을 확인해주세요.", Toast.LENGTH_SHORT).show()
-                    // 이메일 인증 후에 회원가입 버튼 활성화
-                    binding.gotoLoginBtn.isEnabled = true
-                } else {
-                    Toast.makeText(this, "이메일 발송에 실패했습니다.", Toast.LENGTH_SHORT).show()
-                }
-            }
-            // 회원 정보를 데이터베이스에 저장
-            addUserToDatabase(email, auth.currentUser?.uid!!.toString())
-        } else {
-            Toast.makeText(this, "회원가입 실패", Toast.LENGTH_SHORT).show()
         }
     }
-}
 
-private fun addUserToDatabase(email: String, uId: String) {
-    mDbRef.child("user").child(uId).setValue(User(email, uId))
-}
+    // 이메일 인증 버튼 활성화 상태 변경 메소드
+    fun changeSignUpButtonActivation(): Unit {
+        binding.verifyEmailBtn.isEnabled = email_ok == true && pw_ok == true
+    }
+
+    // 비밀번호 == 비밀번호 확인이면 true, 아니면 false
+    fun checkPassword(): Boolean {
+        return binding.passwordArea1.text.toString() == binding.passwordArea2.text.toString()
+    }
+
+    private fun createUserAndSendEmailVerification(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                val user = auth.currentUser
+                user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
+                    if (verificationTask.isSuccessful) {
+                        Toast.makeText(this, "인증 이메일이 발송되었습니다. 이메일을 확인해주세요.", Toast.LENGTH_SHORT)
+                            .show()
+                        // 이메일 인증 후에 회원가입 버튼 활성화
+                        binding.gotoLoginBtn.isEnabled = true
+                    } else {
+                        Toast.makeText(this, "이메일 발송에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                // 회원 정보를 데이터베이스에 저장
+                addUserToDatabase(email, auth.currentUser?.uid!!.toString())
+            } else {
+                Toast.makeText(this, "회원가입 실패", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun addUserToDatabase(email: String, uId: String) {
+        mDbRef.child("user").child(uId).setValue(User(email, uId))
+    }
 }
