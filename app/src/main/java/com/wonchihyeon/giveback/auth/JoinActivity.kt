@@ -42,7 +42,7 @@ class JoinActivity : AppCompatActivity() {
 
         // 모든 필드 입력 되면 가입하기 버튼 활성화
         // 1. 이메일 필드
-        binding.emailArea.addTextChangedListener(object: TextWatcher {
+        binding.emailArea.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -55,9 +55,15 @@ class JoinActivity : AppCompatActivity() {
                 } else if (!email_ok) {
                     // 지정된 도메인 확인
                     binding.emailokText.setTextColor(Color.RED)
-                    binding.emailokText.text = "아이디@gwnu.ac.kr 일 경우 아이디@gwnu.myplug.kr 도메인을 수정하고 입력하세요."
+                    binding.emailokText.text =
+                        "아이디@gwnu.ac.kr 일 경우 아이디@gwnu.myplug.kr 도메인을 수정하고 입력하세요."
                 } else {
-                    binding.emailokText.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
+                    binding.emailokText.setTextColor(
+                        ContextCompat.getColor(
+                            applicationContext,
+                            R.color.green
+                        )
+                    )
                     binding.emailokText.text = "유효한 아이디"
                 }
                 changeSignUpButtonActivation()
@@ -65,14 +71,19 @@ class JoinActivity : AppCompatActivity() {
         })
 
         // 2. 비밀번호 필드
-        binding.passwordArea1.addTextChangedListener(object: TextWatcher {
+        binding.passwordArea1.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 pw_ok = s?.length!! >= 6 && checkPassword() // 6자 이상 + 비밀번호 입력 정상
                 if (s?.length!! >= 6) {
-                    binding.pwokText.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
+                    binding.pwokText.setTextColor(
+                        ContextCompat.getColor(
+                            applicationContext,
+                            R.color.green
+                        )
+                    )
                     binding.pwokText.text = "유효한 비밀번호"
                 } else {
                     binding.pwokText.setTextColor(Color.RED)
@@ -83,14 +94,19 @@ class JoinActivity : AppCompatActivity() {
         })
 
         // 4. 비밀번호 확인 필드
-        binding.passwordArea2.addTextChangedListener(object: TextWatcher {
+        binding.passwordArea2.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable?) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 pw_ok = s?.length!! >= 6 && checkPassword() // 6자 이상 + 비밀번호 입력 정상
                 if (pw_ok) {
-                    binding.pwcheckokText.setTextColor(ContextCompat.getColor(applicationContext, R.color.green))
+                    binding.pwcheckokText.setTextColor(
+                        ContextCompat.getColor(
+                            applicationContext,
+                            R.color.green
+                        )
+                    )
                     binding.pwcheckokText.text = "유효한 비밀번호 확인"
                 } else {
                     binding.pwcheckokText.setTextColor(Color.RED)
@@ -110,44 +126,60 @@ class JoinActivity : AppCompatActivity() {
 
         binding.joinBtn.setOnClickListener {
             // 회원가입 버튼 클릭 시의 액션은 이메일 인증 확인 후에 활성화되어야 함
-            Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
-            val intent  = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
-    }
 
-    // 이메일 인증 버튼 활성화 상태 변경 메소드
-    fun changeSignUpButtonActivation() : Unit {
-        binding.verifyEmailBtn.isEnabled =  email_ok == true && pw_ok == true
-    }
-
-    // 비밀번호 == 비밀번호 확인이면 true, 아니면 false
-    fun checkPassword() : Boolean {
-        return binding.passwordArea1.text.toString() == binding.passwordArea2.text.toString()
-    }
-
-    private fun createUserAndSendEmailVerification(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-                val user = auth.currentUser
-                user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
-                    if (verificationTask.isSuccessful) {
-                        Toast.makeText(this, "인증 이메일이 발송되었습니다. 이메일을 확인해주세요.", Toast.LENGTH_SHORT).show()
-                        // 이메일 인증 후에 회원가입 버튼 활성화
-                        binding.joinBtn.isEnabled = true
-                    } else {
-                        Toast.makeText(this, "이메일 발송에 실패했습니다.", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                // 회원 정보를 데이터베이스에 저장
-                addUserToDatabase(email, auth.currentUser?.uid!!.toString())
+            // 이메일 인증 확인
+            val user = auth.currentUser
+            if (user != null && user.isEmailVerified) {
+                // 이메일 인증이 완료된 경우
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "회원가입 실패", Toast.LENGTH_SHORT).show()
+                // 이메일 인증이 완료되지 않은 경우
+                Toast.makeText(this, "이메일 인증을 완료해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+
+        Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+}
+
+// 이메일 인증 버튼 활성화 상태 변경 메소드
+fun changeSignUpButtonActivation(): Unit {
+    binding.verifyEmailBtn.isEnabled = email_ok == true && pw_ok == true
+}
+
+// 비밀번호 == 비밀번호 확인이면 true, 아니면 false
+fun checkPassword(): Boolean {
+    return binding.passwordArea1.text.toString() == binding.passwordArea2.text.toString()
+}
+
+private fun createUserAndSendEmailVerification(email: String, password: String) {
+    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+        if (task.isSuccessful) {
+            val user = auth.currentUser
+            user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
+                if (verificationTask.isSuccessful) {
+                    Toast.makeText(this, "인증 이메일이 발송되었습니다. 이메일을 확인해주세요.", Toast.LENGTH_SHORT).show()
+                    // 이메일 인증 후에 회원가입 버튼 활성화
+                    binding.joinBtn.isEnabled = true
+                } else {
+                    Toast.makeText(this, "이메일 발송에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            // 회원 정보를 데이터베이스에 저장
+            addUserToDatabase(email, auth.currentUser?.uid!!.toString())
+        } else {
+            Toast.makeText(this, "회원가입 실패", Toast.LENGTH_SHORT).show()
         }
     }
+}
 
-    private fun addUserToDatabase(email:String, uId: String) {
-        mDbRef.child("user").child(uId).setValue(User(email, uId))
-    }
+private fun addUserToDatabase(email: String, uId: String) {
+    mDbRef.child("user").child(uId).setValue(User(email, uId))
+}
 }
