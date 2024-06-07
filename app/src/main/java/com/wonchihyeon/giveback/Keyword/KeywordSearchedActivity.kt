@@ -94,7 +94,7 @@ class KeywordSearchedActivity : AppCompatActivity() {
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
         val alertDialog = AlertDialog.Builder(this)
-            .setIcon(R.drawable.chat)
+            .setIcon(R.drawable.message)
             .setTitle("종료")
             .setMessage("정말로 종료하시겠습니까?")
             .setPositiveButton("확인") { dialog, which ->

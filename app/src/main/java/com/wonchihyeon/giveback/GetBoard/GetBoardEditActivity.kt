@@ -198,7 +198,7 @@ class GetBoardEditActivity : AppCompatActivity() {
         binding.editBtn.setOnClickListener {
 
             val alertDialog = androidx.appcompat.app.AlertDialog.Builder(this)
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("해당 게시글을 수정하겠습니까?")
                 .setPositiveButton("확인") { dialog, which ->
                     editBoardData(key)

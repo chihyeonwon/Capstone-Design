@@ -321,7 +321,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             }
 
             val alertDialog = AlertDialog.Builder(this)
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("습득물 게시글 등록")
                 .setMessage("등록된 게시글은 2024-05-05까지 유지되며 그 이후 자동으로 삭제됩니다.")
                 .setPositiveButton("확인") { dialog, which ->

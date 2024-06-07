@@ -185,7 +185,7 @@ class KeywordWriteActivity : AppCompatActivity() {
         binding.settingBtn.setOnClickListener {
 
             val alertDialog = AlertDialog.Builder(this)
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("${binding.keywordArea.text.toString()}을 키워드로 등록합니다.")
                 .setMessage("등록된 키워드로 습득물 게시글이 올라올 시 알림이 발생합니다.")
                 .setPositiveButton("확인") { dialog, which ->

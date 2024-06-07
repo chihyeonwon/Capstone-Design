@@ -114,7 +114,7 @@ class LostBoardInsideActivity : AppCompatActivity() {
         alertDialog.findViewById<Button>(R.id.removeBtn)?.setOnClickListener {
 
             val alertDialog = androidx.appcompat.app.AlertDialog.Builder(this)
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("해당 게시글을 삭제하겠습니까?")
                 .setPositiveButton("확인") { dialog, which ->
                     FBRef.lostboardRef.child(key).removeValue()
