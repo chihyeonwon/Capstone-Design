@@ -55,6 +55,9 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(intent)
                             Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
                         } else {
+                            val intent = Intent(this, MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
                             // 이메일 인증이 완료되지 않은 경우
                             Toast.makeText(this, "이메일 인증을 완료해주세요.", Toast.LENGTH_SHORT).show()
                         }
