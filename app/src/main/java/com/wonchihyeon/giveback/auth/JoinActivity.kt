@@ -127,7 +127,7 @@ class JoinActivity : AppCompatActivity() {
         binding.gotoLoginBtn.setOnClickListener {
             // 회원가입 버튼 클릭 시의 액션은 이메일 인증 확인 후에 활성화되어야 함
             // 이메일 인증 확인
-            val user = auth.currentUser
+            /*val user = auth.currentUser
 
             user?.sendEmailVerification()?.addOnCompleteListener { verificationTask ->
                 if (verificationTask.isSuccessful) {
@@ -138,7 +138,10 @@ class JoinActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "이메일 인증을 완료해주세요.", Toast.LENGTH_SHORT).show()
                 }
-            }
+            }*/
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
     }
 
