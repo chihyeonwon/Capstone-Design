@@ -122,7 +122,7 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/boardtext"
                 android:id="@+id/joinBtn"
-                android:text="회원가입하기"
+                android:text="로그인하러 가기"
                 android:enabled="false"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"

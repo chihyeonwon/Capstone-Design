@@ -111,7 +111,7 @@ class JoinActivity : AppCompatActivity() {
         binding.joinBtn.setOnClickListener {
             // 회원가입 버튼 클릭 시의 액션은 이메일 인증 확인 후에 활성화되어야 함
             Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent  = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
