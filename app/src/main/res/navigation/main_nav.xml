@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.giveback.fragments.GetFragment"
+        android:name="com.wonchihyeon.giveback.fragments.GetFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_get" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookmarkFragment"
-        android:name="com.example.giveback.fragments.QnAFragment"
+        android:name="com.wonchihyeon.giveback.fragments.QnAFragment"
         android:label="fragment_bookmark"
         tools:layout="@layout/fragment_qna" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/storeFragment"
-        android:name="com.example.giveback.fragments.MyFragment"
+        android:name="com.wonchihyeon.giveback.fragments.MyFragment"
         android:label="fragment_store"
         tools:layout="@layout/fragment_my" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/tipFragment"
-        android:name="com.example.giveback.fragments.LostFragment"
+        android:name="com.wonchihyeon.giveback.fragments.LostFragment"
         android:label="fragment_tip"
         tools:layout="@layout/fragment_lost" >
         <action
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/talkFragment"
-        android:name="com.example.giveback.fragments.ReportFragment"
+        android:name="com.wonchihyeon.giveback.fragments.ReportFragment"
         android:label="fragment_talk"
         tools:layout="@layout/fragment_report" >
         <action

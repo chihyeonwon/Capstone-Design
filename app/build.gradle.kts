@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.giveback"
+    namespace = "com.wonchihyeon.giveback"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.giveback"
+        applicationId = "com.wonchihyeon.giveback"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
