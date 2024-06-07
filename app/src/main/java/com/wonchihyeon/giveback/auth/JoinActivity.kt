@@ -47,7 +47,7 @@ class JoinActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val email = s.toString()
-                email_ok = email.endsWith("@gwnu.ac.kr") || email.endsWith("@gwnu.myplug.kr")
+                email_ok = email.endsWith("@gwnu.myplug.kr")
                 if (!email.contains('@')) {
                     // 이메일에 '@'가 포함되어 있는지 확인
                     binding.emailokText.setTextColor(Color.RED)
