@@ -16,7 +16,11 @@ import com.wonchihyeon.giveback.R
 import com.wonchihyeon.giveback.auth.LoginActivity
 import com.wonchihyeon.giveback.databinding.FragmentMyBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import com.wonchihyeon.giveback.utils.FBRef
 
 // 사용자 페이지
 class MyFragment : Fragment() {
@@ -27,6 +31,8 @@ class MyFragment : Fragment() {
 
     val user = FirebaseAuth.getInstance().currentUser
     val email = user?.email.toString()
+
+    private lateinit var mDbRef: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -45,6 +51,9 @@ class MyFragment : Fragment() {
 
         binding.email.setText("사용자: ${email}")
 
+        // 유저데이터베이스 초기화
+        mDbRef = Firebase.database.reference
+
         // 게시글 버튼을 클릭했을 때 내가 작성한 습득물, 분실물 게시판을 모아서 보여주는 Myboard 페이지로 이동
         binding.board.setOnClickListener {
 
@@ -57,7 +66,7 @@ class MyFragment : Fragment() {
         binding.question.setOnClickListener {
 
             val alertDialog = AlertDialog.Builder(requireContext())
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("키워드 설정")
                 .setMessage("사전에 물품을 설정하여 해당 물품과 관련된 게시글 등록 시 자동으로 알림을 받을 수 있는 기능입니다.")
                 .setPositiveButton("확인") { dialog, which ->
@@ -86,7 +95,7 @@ class MyFragment : Fragment() {
         binding.logoutBtn.setOnClickListener {
 
             val alertDialog = AlertDialog.Builder(requireContext())
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("로그아웃")
                 .setMessage("계정을 로그아웃 합니다.")
                 .setPositiveButton("확인") { dialog, which ->
@@ -113,11 +122,13 @@ class MyFragment : Fragment() {
         binding.signoutBtn.setOnClickListener {
 
             val alertDialog = AlertDialog.Builder(requireContext())
-                .setIcon(R.drawable.chat)
+                .setIcon(R.drawable.message)
                 .setTitle("회원탈퇴")
                 .setMessage("회원탈퇴 시 모든 계정은 삭제되며 복구되지 않습니다.")
                 .setPositiveButton("확인") { dialog, which ->
                     auth.currentUser?.delete()
+
+                    mDbRef.child("user").child(auth.currentUser?.uid!!.toString()).removeValue()
 
                     // LoginActivity로 화면 이동
                     val intent = Intent(requireContext(), LoginActivity::class.java)
