@@ -83,17 +83,6 @@ class GetBoardInsideActivity : AppCompatActivity() {
         writerEmail = intent.getStringExtra("email").toString()
         writerUid = intent.getStringExtra("uid").toString()
 
-        // 공유 아이콘 클릭 시
-        binding.sharebtn.setOnClickListener {
-            val msg = Intent(Intent.ACTION_SEND)
-
-            msg.addCategory(Intent.CATEGORY_DEFAULT)
-            msg.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.example.giveback")
-            msg.putExtra(Intent.EXTRA_TITLE, "제목")
-            msg.type = "text/plain"
-            startActivity(Intent.createChooser(msg, "앱을 선택해 주세요"))
-        }
-
         // 채팅하기 버튼 클릭 시
         binding.chatBtn.setOnClickListener {
             val intent = Intent(this, ChatActivity::class.java)
