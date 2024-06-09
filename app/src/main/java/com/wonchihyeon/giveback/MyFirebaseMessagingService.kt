@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.wonchihyeon.giveback.fragments.MyFragment
 import java.net.URLDecoder
 
 
@@ -26,15 +27,23 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMessageReceived(message: RemoteMessage) {
 
-        // notification
-        if(message.notification != null) { //포그라운드
-            sendNotification(message.notification?.title!!, message.notification?.body!!);
+        val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        val isDenied: Boolean = MyFragment.preferences.getBoolean("noti", false)
+        if (isDenied) {
+            if(message.notification != null) { //포그라운드
+                sendNotification(message.notification?.title!!, message.notification?.body!!);
+            }
+
+            // data
+            if (message.data.isNotEmpty()) { //백그라운드
+                message.data["title"]?.let { sendNotification(it, message.data["body"]!!) };
+            }
+
+        } else {
+            manager.deleteNotificationChannel("myChId")
         }
 
-        // data
-        if (message.data.isNotEmpty()) { //백그라운드
-            message.data["title"]?.let { sendNotification(it, message.data["body"]!!) };
-        }
     }
 
     // FCM 푸시 메시지를 앱에서 알림

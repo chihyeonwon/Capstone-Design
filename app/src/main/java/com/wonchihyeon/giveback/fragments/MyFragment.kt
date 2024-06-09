@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -21,6 +22,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.wonchihyeon.giveback.utils.FBRef
+import com.wonchihyeon.giveback.utils.PreferenceUtil
 
 // 사용자 페이지
 class MyFragment : Fragment() {
@@ -33,11 +35,14 @@ class MyFragment : Fragment() {
     val email = user?.email.toString()
 
     private lateinit var mDbRef: DatabaseReference
+
+    companion object {
+        lateinit var preferences: PreferenceUtil
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-
+        preferences = PreferenceUtil(requireContext())
     }
 
     override fun onCreateView(
@@ -90,7 +95,19 @@ class MyFragment : Fragment() {
             val intent = Intent(requireContext(), ChatListActivity::class.java)
             startActivity(intent)
         }
-        
+
+        // Push 알림 체크 활성화시
+        binding.notiswitch.setOnCheckedChangeListener { p0, isChecked ->
+            if (isChecked) {
+                val pref = preferences.setBoolean("noti", true)
+                Toast.makeText(context, "알림 기능이 활성화되었습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                val pref = preferences.setBoolean("noti", false)
+                Toast.makeText(context, "알림 기능이 비활성화되었습니다.", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
         // 로그아웃 버튼을 클릭했을 때 로그아웃이 진행되고 로그인 페이지로 이동
         binding.logoutBtn.setOnClickListener {
 
@@ -103,7 +120,8 @@ class MyFragment : Fragment() {
                     val uid = FirebaseAuth.getInstance().currentUser?.uid
 
                     // 파이어베이스 토큰 삭제
-                    FirebaseFirestore.getInstance().collection("pushtokens").document(uid!!).delete()
+                    FirebaseFirestore.getInstance().collection("pushtokens").document(uid!!)
+                        .delete()
 
                     // 로그아웃
                     auth.signOut()
