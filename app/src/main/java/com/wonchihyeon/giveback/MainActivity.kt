@@ -17,12 +17,17 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
+import com.wonchihyeon.giveback.utils.PreferenceUtil
 
 // 메인 화면
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private val PERMISSION_REQUEST_CODE = 5000
+
+    companion object {
+        lateinit var preferences: PreferenceUtil
+    }
 
 
     @SuppressLint("MissingInflatedId")
@@ -39,6 +44,8 @@ class MainActivity : AppCompatActivity() {
 
         // 로그인이 되자마자 토큰 발급
         registerPushToken()
+
+        preferences = PreferenceUtil(this)
     }
 
     private fun permissionCheck() {

@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.wonchihyeon.giveback.MainActivity.Companion.preferences
 import com.wonchihyeon.giveback.fragments.MyFragment
 import java.net.URLDecoder
 
@@ -29,7 +30,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        val isDenied: Boolean = MyFragment.preferences.getBoolean("noti", false)
+        val isDenied: Boolean = preferences.getBoolean("noti", false)
         if (isDenied) {
             if(message.notification != null) { //포그라운드
                 sendNotification(message.notification?.title!!, message.notification?.body!!);

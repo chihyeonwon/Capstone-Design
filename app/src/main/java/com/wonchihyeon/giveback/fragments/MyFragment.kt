@@ -21,8 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.wonchihyeon.giveback.utils.FBRef
-import com.wonchihyeon.giveback.utils.PreferenceUtil
+import com.wonchihyeon.giveback.MainActivity.Companion.preferences
 
 // 사용자 페이지
 class MyFragment : Fragment() {
@@ -36,13 +35,8 @@ class MyFragment : Fragment() {
 
     private lateinit var mDbRef: DatabaseReference
 
-    companion object {
-        lateinit var preferences: PreferenceUtil
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        preferences = PreferenceUtil(requireContext())
     }
 
     override fun onCreateView(
