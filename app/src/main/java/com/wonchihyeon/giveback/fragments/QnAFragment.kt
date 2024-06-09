@@ -63,6 +63,7 @@ class QnAFragment : Fragment() {
 
             val intent = Intent(context, QnaBoardInsideActivity::class.java)
             intent.putExtra("key",boardKeyList[position])
+            intent.putExtra("uid", boardDataList[position].uid)
             startActivity(intent)
         }
 
