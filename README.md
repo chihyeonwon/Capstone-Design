@@ -989,4 +989,6 @@ viewPager를 적용하고 indicator 까지 연결하였습니다.
 
 #### 키워드 알림 기능 on/off 테스트
 ![2024-06-09 17;27;51](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/3e4735fb-556b-4c7a-82bc-35013e4ceb96)
-
+```
+앱 내에서 데이터를 저장하고 삭제할 수 있는 SharedPreference 데이터베이스를 사용하여 앱의 알림 기능을 끄고 키는 기능을 추가하였습니다.
+```
