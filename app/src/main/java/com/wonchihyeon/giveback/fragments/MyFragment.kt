@@ -108,6 +108,9 @@ class MyFragment : Fragment() {
 
         }
 
+        // 스위치 상태 고정
+        binding.notiswitch.isChecked = preferences.getBoolean("noti", false)
+
         // 로그아웃 버튼을 클릭했을 때 로그아웃이 진행되고 로그인 페이지로 이동
         binding.logoutBtn.setOnClickListener {
 
