@@ -994,7 +994,7 @@ viewPager를 적용하고 indicator 까지 연결하였습니다.
 ```
 ## 24.06.10
 #### QnA 댓글 알림 기능
-
+![2024-06-10 04;40;36](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/4b13e6c1-f29c-4fcb-aaf1-3443594c1a0e)
 ```
 QnA 게시판에 관리자의 댓글이 달리면 알림이 발생한다.
 ```
