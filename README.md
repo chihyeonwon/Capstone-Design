@@ -983,8 +983,10 @@ viewPager를 적용하고 indicator 까지 연결하였습니다.
 ```
 자동 로그인 기능 추가 - 앱 사용자는 앱을 사용하기 위해서 번거로운 인증의 과정을 거치지않고 로그인할 수 있다.
 ```
-#### FCM 알림 끄기 기능 
+#### FCM 알림 끄기 기능 추가
+#### 채팅 알림 기능 on/off 테스트
+![2024-06-09 17;25;54](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/1a0d0b3a-21bb-44da-b5b4-87c59a137345)
 
-```
+#### 키워드 알림 기능 on/off 테스트
+![2024-06-09 17;27;51](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/3e4735fb-556b-4c7a-82bc-35013e4ceb96)
 
-```
