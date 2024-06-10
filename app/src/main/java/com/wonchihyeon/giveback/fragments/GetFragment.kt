@@ -107,26 +107,8 @@ class GetFragment : Fragment() {
 
                     val item = dataModel.getValue(GetBoardModel::class.java)
 
-                    val inputDate = item?.getDate
-
-                    val inputFormat = SimpleDateFormat("yyyy년 MM월 dd일")
-                    val outputFormat = SimpleDateFormat("yyyy년 MM월 dd일")
-
-                    val date = inputFormat.parse(inputDate)
-
-                    val calendar = Calendar.getInstance()
-                    calendar.time = date
-                    calendar.add(Calendar.MONTH, 1)
-
-                    val outputDate = outputFormat.format(calendar.time)
-
-                    Log.d(TAG, outputDate)
-
-                    // 1달 전 데이터들만 추가한다.
-                    if(item?.getDate!! != outputDate) {
-                        boardDataList.add(item!!)
-                        boardKeyList.add(dataModel.key.toString())
-                    }
+                    boardDataList.add(item!!)
+                    boardKeyList.add(dataModel.key.toString())
                 }
 
                 boardKeyList.reverse()

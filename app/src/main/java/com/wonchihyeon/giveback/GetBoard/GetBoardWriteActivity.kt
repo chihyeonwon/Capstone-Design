@@ -323,7 +323,7 @@ class GetBoardWriteActivity : AppCompatActivity() {
             val alertDialog = AlertDialog.Builder(this)
                 .setIcon(R.drawable.message)
                 .setTitle("습득물 게시글 등록")
-                .setMessage("등록된 게시글은 2024-05-05까지 유지되며 그 이후 자동으로 삭제됩니다.")
+                .setMessage("작성한 게시글은 사용자 페이지의 게시물에서도 확인할 수 있습니다.")
                 .setPositiveButton("확인") { dialog, which ->
                     // 파이어 베이스에 데이터를 저장한다.
                     FBRef.getboardRef
