@@ -1015,5 +1015,11 @@ QnA 게시판에 관리자의 댓글이 달리면 알림이 발생한다.
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/412326f5-ca9a-467a-9046-38858dff8439)      
 
 #### 3. 긴 채팅 입력할 때 버튼이 작아지는 현상 수정
+![2024-06-13 16;23;56](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/697182ea-516d-4f04-993e-ea0d7d7fd49e)
+```
+ChatActivity의 EditText 에 scrollbars="vertical" 속성과 maxLines="5" 속성을 줘서 5줄이 넘어가면 스크롤이 가능하도록 구성하였습니다.
+버튼을 전송 버튼에서 보내기 버튼 이미지로 수정하였습니다.
 
+추가로 보내는 메시지와 받는 메시지의 maxWidth 값을 줘서 일정 텍스트가 넘어가면 다음줄로 넘어가도록 수정하였습니다.
+```
 
