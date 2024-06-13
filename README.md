@@ -1000,6 +1000,20 @@ QnA 게시판에 관리자의 댓글이 달리면 알림이 발생한다.
 ```
 ## 24.06.13 프로젝트 최종 스크럼 회의
 ```
-최종 피드백 : 신고 페이지에서 사진느낌이 안나도록 수정
-이메일 형식에서 @ 부터 뒤 절삭
+최종 피드백 
+1. 신고 페이지에서 사진느낌이 안나도록 수정
+2. 이메일 형식에서 @ 부터 뒤 절삭
+3. 채팅이 길어질 때 버튼이 작아지는 현상 수정
 ```
+#### 1. 사진 느낌 안나도록 수정
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/2423ef3b-7735-48f2-9c1e-ed3a26b366ae)      
+
+#### 2. 이메일 형식에서 @ 부터 뒤 절삭
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/e8e4ed7a-1602-48d1-ac18-09707f787b1e)    
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/07272fe1-e883-46c9-95f7-13f2f6117498)     
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/4b3eba27-3fbe-456c-8200-3b7eaad2dfc7)     
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/412326f5-ca9a-467a-9046-38858dff8439)      
+
+#### 3. 긴 채팅 입력할 때 버튼이 작아지는 현상 수정
+
+
