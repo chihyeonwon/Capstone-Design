@@ -45,6 +45,8 @@ class MyBoardActivity : AppCompatActivity() {
 
             val intent = Intent(this, GetBoardInsideActivity::class.java)
             intent.putExtra("key",boardKeyList[position])
+            intent.putExtra("email", boardDataList[position].email)
+            intent.putExtra("uid", boardDataList[position].uid)
             startActivity(intent)
         }
 
