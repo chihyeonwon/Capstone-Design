@@ -32,6 +32,7 @@ class MyFragment : Fragment() {
 
     val user = FirebaseAuth.getInstance().currentUser
     val email = user?.email.toString()
+    val username = email.substringBefore("@")
 
     private lateinit var mDbRef: DatabaseReference
 
@@ -48,7 +49,7 @@ class MyFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
-        binding.email.setText("사용자: ${email}")
+        binding.email.setText("사용자: ${username}")
 
         // 유저데이터베이스 초기화
         mDbRef = Firebase.database.reference

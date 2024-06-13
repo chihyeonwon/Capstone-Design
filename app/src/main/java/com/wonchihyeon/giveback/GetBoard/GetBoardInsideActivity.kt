@@ -81,13 +81,15 @@ class GetBoardInsideActivity : AppCompatActivity() {
         binding.manageNumber.text = "관리번호 : ${key}"
 
         writerEmail = intent.getStringExtra("email").toString()
+        val username = writerEmail.substringBefore("@")
+
         writerUid = intent.getStringExtra("uid").toString()
 
         // 채팅하기 버튼 클릭 시
         binding.chatBtn.setOnClickListener {
             val intent = Intent(this, ChatActivity::class.java)
             intent.putExtra("uid", writerUid)
-            intent.putExtra("email", writerEmail)
+            intent.putExtra("email", username)
 
             startActivity(intent)
         }
@@ -165,7 +167,7 @@ class GetBoardInsideActivity : AppCompatActivity() {
 
                 if (dataModel != null) {
 
-                    binding.emailArea.setText("습득자: ${dataModel.email}")
+                    binding.emailArea.setText("습득자: ${dataModel.email.substringBefore("@")}")
                     binding.titleArea.setText("습득물명: ${dataModel.title}")
                     binding.categoryArea.setText("카테고리명: ${dataModel.category}")
                     binding.getDateArea.setText("습득날짜: ${dataModel.getDate}")

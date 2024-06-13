@@ -30,7 +30,7 @@ class UserAdapter(private val context: android.content.Context, private val user
         val currentUser = userList[position]
 
         //화면에 데이터 보여주기
-        holder.nameText.text = currentUser.email
+        holder.nameText.text = currentUser.email.substringBefore("@")
 
         //아이템 클릭 이벤트
         holder.itemView.setOnClickListener {
@@ -38,7 +38,7 @@ class UserAdapter(private val context: android.content.Context, private val user
             val intent  = Intent(context, ChatActivity::class.java)
 
             //넘길 데이터
-            intent.putExtra("email", currentUser.email)
+            intent.putExtra("email", currentUser.email.substringBefore("@"))
             intent.putExtra("uid", currentUser.uId)
 
             context.startActivity(intent)

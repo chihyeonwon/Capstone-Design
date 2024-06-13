@@ -80,10 +80,10 @@ class QnaBoardListLVAdapter(val boardList : MutableList<QnaBoardModel>, val boar
                     "*".repeat(atIndex - 4) + // 뒤에꺼는 *로 대체하고
                     boardList[position].email.substring(atIndex) // @뒤는 그대로 표시
 
-            email!!.text = maskedPart
+            email!!.text = maskedPart.substringBefore("@")
 
         } else {
-            email!!.text = boardList[position].email
+            email!!.text = boardList[position].email.substringBefore("@")
         }
 
         title!!.text = boardList[position].title
