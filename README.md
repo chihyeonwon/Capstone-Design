@@ -1004,6 +1004,7 @@ QnA 게시판에 관리자의 댓글이 달리면 알림이 발생한다.
 1. 신고 페이지에서 사진느낌이 안나도록 수정
 2. 이메일 형식에서 @ 부터 뒤 절삭
 3. 채팅이 길어질 때 버튼이 작아지는 현상 수정
+4. 마이페이지 UI 수정
 ```
 #### 1. 사진 느낌 안나도록 수정
 ![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/2423ef3b-7735-48f2-9c1e-ed3a26b366ae)      
@@ -1022,4 +1023,6 @@ ChatActivity의 EditText 에 scrollbars="vertical" 속성과 maxLines="5" 속성
 
 추가로 보내는 메시지와 받는 메시지의 maxWidth 값을 줘서 일정 텍스트가 넘어가면 다음줄로 넘어가도록 수정하였습니다.
 ```
+#### 4. 마이페이지 UI 수정
+![image](https://github.com/chihyeonwon/Capstone-Design/assets/58906858/ca916fff-5c07-4f95-b2d8-72fdb6002b18)
 
